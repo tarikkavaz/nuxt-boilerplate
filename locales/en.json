@@ -1,0 +1,14 @@
+{
+  "nav": {
+    "home": "Homepage",
+    "about": "About Us"
+  },
+  "home": {
+    "metatilte": "This is the Homepage",
+    "welcome" : "Welcome!"
+  },
+  "about": {
+    "metatilte": "The About Us",
+    "aboutus" : "About Us"
+  }
+}
