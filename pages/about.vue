@@ -1,5 +1,11 @@
 <template>
-  <div>{{ $t("about.aboutus") }}</div>
+  <div>
+    <h1 class="text-2xl font-bold">{{ $t("about.aboutus") }}</h1>
+    <p class="mt-6 text-lg text-slate-700">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure nemo fugit
+      corrupti reiciendis maiores neque quia, hic dolore temporibus nisi.
+    </p>
+  </div>
 </template>
 
 <script>
