@@ -5,7 +5,18 @@
         <nuxt-link :to="localePath('index')" class="mr-5">{{
           $t("nav.home")
         }}</nuxt-link>
-        <nuxt-link :to="localePath('about')">{{ $t("nav.about") }}</nuxt-link>
+        <nuxt-link :to="localePath('about')" class="mr-5">{{ $t("nav.about") }}</nuxt-link>
+        <dropdown-menu 
+          :overlay="false"
+          direction="center"
+          >
+          <button slot="trigger">Open Dropdown</button>
+          <header slot="header">Dropdown Header</header>
+          <ul slot="body">
+            <li v-for="i in 6" :key="i"><a href="">Item {{i}}</a></li>
+          </ul>
+          <footer slot="footer">Dropdown Footer</footer>
+        </dropdown-menu>
       </div>
       <div class="col-span-1 justify-self-end">
         <nuxt-link
@@ -30,6 +41,11 @@ export default {
       return this.$i18n.locales.filter((i) => i.code !== this.$i18n.locale);
     },
   },
+  data() {
+    return {
+      isOpenMyDropdown: false
+    }
+  }
 };
 </script>
 
