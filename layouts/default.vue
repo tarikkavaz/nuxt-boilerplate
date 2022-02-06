@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto mt-20">
+  <div class="container px-4 mx-auto mt-20 md:px-0">
     <div class="grid grid-cols-4 pb-2 border-b-2 border-slate-800">
       <div class="col-span-3">
         <nuxt-link :to="localePath('index')" class="mr-5">{{

@@ -5,6 +5,16 @@
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure nemo fugit
       corrupti reiciendis maiores neque quia, hic dolore temporibus nisi.
     </p>
+
+    <button @click="$modal.show('my-modal')" class="px-4 py-2 mt-4 text-black rounded-md bg-lime-400">Show modal</button>
+
+    <modal name="my-modal">
+      <div class="modal-content">
+        <h2>It work's!</h2>
+
+        <button @click="$modal.hide('my-modal')">Close it</button>
+      </div>
+    </modal>
   </div>
 </template>
 
@@ -51,3 +61,8 @@ export default {
   },
 };
 </script>
+<style>
+.vm--modal {
+  @apply rounded-lg p-5;
+}
+</style>

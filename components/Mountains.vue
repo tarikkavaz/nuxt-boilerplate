@@ -13,7 +13,7 @@
     </ul>
     <button
       @click="$fetch"
-      class="px-4 py-2 mt-4 text-black rounded-lg bg-lime-400"
+      class="px-4 py-2 mt-4 text-black rounded-md bg-lime-400"
     >
       Refresh Data
     </button>

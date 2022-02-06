@@ -6,12 +6,12 @@
     </p>
     <p v-else-if="$fetchState.error">Error while fetching mountains 🤬</p>
     <section>
-      <img :src="mountain.image" :alt="mountain.title" />
+      <img :src="mountain.image" :alt="mountain.title" class="object-cover h-48 rounded-md w-96" />
       <p class="mt-6 text-lg text-slate-700">{{ mountain.description }}</p>
     </section>
     <button
       @click="goBack"
-      class="px-4 py-2 mt-4 text-black rounded-lg bg-lime-400"
+      class="px-4 py-2 mt-4 text-black rounded-md bg-lime-400"
     >
       Back
     </button>
