@@ -5,6 +5,7 @@
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure nemo fugit
       corrupti reiciendis maiores neque quia, hic dolore temporibus nisi.
     </p>
+    <Mountains />
   </div>
 </template>
 
