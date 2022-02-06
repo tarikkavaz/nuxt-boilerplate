@@ -6,12 +6,17 @@
     <p v-else-if="$fetchState.error">Error while fetching mountains 🤬</p>
     <ul v-else>
       <li v-for="mountain in mountains" :key="mountain.title">
-        <NuxtLink :to="`mountains/${mountain.slug}`">
+        <NuxtLink :to="`mountains/${mountain.slug}`" class="text-lime-600">
           {{ mountain.title }}
         </NuxtLink>
       </li>
     </ul>
-    <button @click="$fetch">Refresh Data</button>
+    <button
+      @click="$fetch"
+      class="px-4 py-2 mt-4 text-black rounded-lg bg-lime-400"
+    >
+      Refresh Data
+    </button>
   </div>
 </template>
 <script>
@@ -29,6 +34,12 @@ export default {
 
   async fetch() {
     this.mountains = await this.$http.$get("https://api.nuxtjs.dev/mountains");
+  },
+  nuxtI18n: {
+    paths: {
+      en: "/mountains/",
+      tr: "/daglar/",
+    },
   },
 };
 </script>

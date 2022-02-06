@@ -5,7 +5,10 @@
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure nemo fugit
       corrupti reiciendis maiores neque quia, hic dolore temporibus nisi.
     </p>
-    <Mountains />
+    <div class="mt-10">
+      <h2 class="mb-2 text-xl font-semibold">Mountains</h2>
+      <Mountains />
+    </div>
   </div>
 </template>
 
