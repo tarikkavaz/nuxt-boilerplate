@@ -43,7 +43,7 @@ module.exports =
 /******/
 /******/ 		// "0" is the signal for "already loaded"
 /******/ 		if(installedChunks[chunkId] !== 0) {
-/******/ 			var chunk = require("./" + ({"1":"components/mountains","2":"pages/about","3":"pages/index","4":"pages/mountains/_slug"}[chunkId]||chunkId) + ".js");
+/******/ 			var chunk = require("./" + ({"1":"lang-en-US.js","2":"lang-tr-TR.js","3":"pages/about","4":"pages/index"}[chunkId]||chunkId) + ".js");
 /******/ 			var moreModules = chunk.modules, chunkIds = chunk.ids;
 /******/ 			for(var moduleId in moreModules) {
 /******/ 				modules[moduleId] = moreModules[moduleId];
@@ -115,7 +115,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 31);
+/******/ 	return __webpack_require__(__webpack_require__.s = 25);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -127,12 +127,6 @@ module.exports =
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return nuxtOptions; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return options; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return localeMessages; });
-/* harmony import */ var _locales_en_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(26);
-var _locales_en_json__WEBPACK_IMPORTED_MODULE_0___namespace = /*#__PURE__*/__webpack_require__.t(26, 1);
-/* harmony import */ var _locales_tr_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(27);
-var _locales_tr_json__WEBPACK_IMPORTED_MODULE_1___namespace = /*#__PURE__*/__webpack_require__.t(27, 1);
-
-
 const Constants = {
   COMPONENT_OPTIONS_KEY: "nuxtI18n",
   STRATEGIES: {
@@ -152,29 +146,27 @@ const nuxtOptions = {
   trailingSlash: undefined
 };
 const options = {
-  vueI18n: {
-    "fallbackLocale": "en"
-  },
-  vueI18nLoader: false,
+  vueI18n: {},
+  vueI18nLoader: true,
   locales: [{
+    "code": "en",
+    "iso": "en-US",
+    "file": "en-US.js",
+    "name": "English"
+  }, {
     "code": "tr",
     "iso": "tr-TR",
-    "name": "Türkçe",
-    "file": "tr.json"
-  }, {
-    "code": "en",
-    "iso": "en-EN",
-    "name": "English",
-    "file": "en.json"
+    "file": "tr-TR.js",
+    "name": "Türkçe"
   }],
-  defaultLocale: "en",
+  defaultLocale: "tr",
   defaultDirection: "ltr",
   routesNameSeparator: "___",
   defaultLocaleRouteNameSuffix: "default",
   sortRoutes: true,
-  strategy: "prefix_except_default",
-  lazy: false,
-  langDir: "/Users/tarik/Work/NewTabLab/Boilerplates/nuxt-boilerplate/locales",
+  strategy: "prefix",
+  lazy: true,
+  langDir: "/Users/tarik/Work/NewTabLab/flammbodrum.nuxt/lang",
   rootRedirect: null,
   detectBrowserLanguage: {
     "alwaysRedirect": false,
@@ -192,33 +184,28 @@ const options = {
     "moduleName": "i18n",
     "syncRouteParams": true
   },
-  parsePages: false,
-  pages: {
-    "about": {
-      "en": "/about",
-      "tr": "/hakkinda"
-    }
-  },
+  parsePages: true,
+  pages: {},
   skipSettingLocaleOnNavigate: false,
   onBeforeLanguageSwitch: () => {},
   onLanguageSwitched: () => null,
   normalizedLocales: [{
+    "code": "en",
+    "iso": "en-US",
+    "file": "en-US.js",
+    "name": "English"
+  }, {
     "code": "tr",
     "iso": "tr-TR",
-    "name": "Türkçe",
-    "file": "tr.json"
-  }, {
-    "code": "en",
-    "iso": "en-EN",
-    "name": "English",
-    "file": "en.json"
+    "file": "tr-TR.js",
+    "name": "Türkçe"
   }],
-  localeCodes: ["tr", "en"],
+  localeCodes: ["en", "tr"],
   additionalMessages: []
 };
 const localeMessages = {
-  'en.json': () => Promise.resolve(_locales_en_json__WEBPACK_IMPORTED_MODULE_0__),
-  'tr.json': () => Promise.resolve(_locales_tr_json__WEBPACK_IMPORTED_MODULE_1__)
+  'en-US.js': () => __webpack_require__.e(/* import() | lang-en-US.js */ 1).then(__webpack_require__.bind(null, 53)),
+  'tr-TR.js': () => __webpack_require__.e(/* import() | lang-tr-TR.js */ 2).then(__webpack_require__.bind(null, 54))
 };
 
 /***/ }),
@@ -246,9 +233,9 @@ module.exports = require("ufo");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return createLocaleFromRouteGetter; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getLocaleCookie; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return setLocaleCookie; });
-/* harmony import */ var cookie__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(18);
+/* harmony import */ var cookie__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14);
 /* harmony import */ var cookie__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(cookie__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(43);
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(36);
 /* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_1__);
 
 
@@ -500,12 +487,6 @@ function setLocaleCookie(locale, res, {
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports) {
-
-module.exports = require("node-fetch");
-
-/***/ }),
-/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -609,6 +590,471 @@ function normalizeComponent (
   }
 }
 
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(URLSearchParams) {
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+const n = /[^\0-\x7E]/;
+const t = /[\x2E\u3002\uFF0E\uFF61]/g;
+const o = { overflow: "Overflow Error", "not-basic": "Illegal Input", "invalid-input": "Invalid Input" };
+const e = Math.floor;
+const r = String.fromCharCode;
+function s(n2) {
+  throw new RangeError(o[n2]);
+}
+const c = function(n2, t2) {
+  return n2 + 22 + 75 * (n2 < 26) - ((t2 != 0) << 5);
+};
+const u = function(n2, t2, o2) {
+  let r2 = 0;
+  for (n2 = o2 ? e(n2 / 700) : n2 >> 1, n2 += e(n2 / t2); n2 > 455; r2 += 36) {
+    n2 = e(n2 / 35);
+  }
+  return e(r2 + 36 * n2 / (n2 + 38));
+};
+function toASCII(o2) {
+  return function(n2, o3) {
+    const e2 = n2.split("@");
+    let r2 = "";
+    e2.length > 1 && (r2 = e2[0] + "@", n2 = e2[1]);
+    const s2 = function(n3, t2) {
+      const o4 = [];
+      let e3 = n3.length;
+      for (; e3--; ) {
+        o4[e3] = t2(n3[e3]);
+      }
+      return o4;
+    }((n2 = n2.replace(t, ".")).split("."), o3).join(".");
+    return r2 + s2;
+  }(o2, function(t2) {
+    return n.test(t2) ? "xn--" + function(n2) {
+      const t3 = [];
+      const o3 = (n2 = function(n3) {
+        const t4 = [];
+        let o4 = 0;
+        const e2 = n3.length;
+        for (; o4 < e2; ) {
+          const r2 = n3.charCodeAt(o4++);
+          if (r2 >= 55296 && r2 <= 56319 && o4 < e2) {
+            const e3 = n3.charCodeAt(o4++);
+            (64512 & e3) == 56320 ? t4.push(((1023 & r2) << 10) + (1023 & e3) + 65536) : (t4.push(r2), o4--);
+          } else {
+            t4.push(r2);
+          }
+        }
+        return t4;
+      }(n2)).length;
+      let f = 128;
+      let i = 0;
+      let l = 72;
+      for (const o4 of n2) {
+        o4 < 128 && t3.push(r(o4));
+      }
+      const h = t3.length;
+      let p = h;
+      for (h && t3.push("-"); p < o3; ) {
+        let o4 = 2147483647;
+        for (const t4 of n2) {
+          t4 >= f && t4 < o4 && (o4 = t4);
+        }
+        const a = p + 1;
+        o4 - f > e((2147483647 - i) / a) && s("overflow"), i += (o4 - f) * a, f = o4;
+        for (const o5 of n2) {
+          if (o5 < f && ++i > 2147483647 && s("overflow"), o5 == f) {
+            let n3 = i;
+            for (let o6 = 36; ; o6 += 36) {
+              const s2 = o6 <= l ? 1 : o6 >= l + 26 ? 26 : o6 - l;
+              if (n3 < s2) {
+                break;
+              }
+              const u2 = n3 - s2;
+              const f2 = 36 - s2;
+              t3.push(r(c(s2 + u2 % f2, 0))), n3 = e(u2 / f2);
+            }
+            t3.push(r(c(n3, 0))), l = u(i, a, p == h), i = 0, ++p;
+          }
+        }
+        ++i, ++f;
+      }
+      return t3.join("");
+    }(t2) : t2;
+  });
+}
+
+const HASH_RE = /#/g;
+const AMPERSAND_RE = /&/g;
+const SLASH_RE = /\//g;
+const EQUAL_RE = /=/g;
+const IM_RE = /\?/g;
+const PLUS_RE = /\+/g;
+const ENC_BRACKET_OPEN_RE = /%5B/gi;
+const ENC_BRACKET_CLOSE_RE = /%5D/gi;
+const ENC_CARET_RE = /%5E/gi;
+const ENC_BACKTICK_RE = /%60/gi;
+const ENC_CURLY_OPEN_RE = /%7B/gi;
+const ENC_PIPE_RE = /%7C/gi;
+const ENC_CURLY_CLOSE_RE = /%7D/gi;
+const ENC_SPACE_RE = /%20/gi;
+const ENC_SLASH_RE = /%2F/gi;
+const ENC_ENC_SLASH_RE = /%252F/gi;
+function encode(text) {
+  return encodeURI("" + text).replace(ENC_PIPE_RE, "|").replace(ENC_BRACKET_OPEN_RE, "[").replace(ENC_BRACKET_CLOSE_RE, "]");
+}
+function encodeHash(text) {
+  return encode(text).replace(ENC_CURLY_OPEN_RE, "{").replace(ENC_CURLY_CLOSE_RE, "}").replace(ENC_CARET_RE, "^");
+}
+function encodeQueryValue(text) {
+  return encode(text).replace(PLUS_RE, "%2B").replace(ENC_SPACE_RE, "+").replace(HASH_RE, "%23").replace(AMPERSAND_RE, "%26").replace(ENC_BACKTICK_RE, "`").replace(ENC_CURLY_OPEN_RE, "{").replace(ENC_CURLY_CLOSE_RE, "}").replace(ENC_CARET_RE, "^");
+}
+function encodeQueryKey(text) {
+  return encodeQueryValue(text).replace(EQUAL_RE, "%3D");
+}
+function encodePath(text) {
+  return encode(text).replace(HASH_RE, "%23").replace(IM_RE, "%3F").replace(ENC_ENC_SLASH_RE, "%2F").replace(AMPERSAND_RE, "%26").replace(PLUS_RE, "%2B");
+}
+function encodeParam(text) {
+  return encodePath(text).replace(SLASH_RE, "%2F");
+}
+function decode(text = "") {
+  try {
+    return decodeURIComponent("" + text);
+  } catch (_err) {
+    return "" + text;
+  }
+}
+function decodePath(text) {
+  return decode(text.replace(ENC_SLASH_RE, "%252F"));
+}
+function decodeQueryValue(text) {
+  return decode(text.replace(PLUS_RE, " "));
+}
+function encodeHost(name = "") {
+  return toASCII(name);
+}
+
+function parseQuery(paramsStr = "") {
+  const obj = {};
+  if (paramsStr[0] === "?") {
+    paramsStr = paramsStr.substr(1);
+  }
+  for (const param of paramsStr.split("&")) {
+    const s = param.match(/([^=]+)=?(.*)/) || [];
+    if (s.length < 2) {
+      continue;
+    }
+    const key = decode(s[1]);
+    if (key === "__proto__" || key === "constructor") {
+      continue;
+    }
+    const value = decodeQueryValue(s[2] || "");
+    if (obj[key]) {
+      if (Array.isArray(obj[key])) {
+        obj[key].push(value);
+      } else {
+        obj[key] = [obj[key], value];
+      }
+    } else {
+      obj[key] = value;
+    }
+  }
+  return obj;
+}
+function encodeQueryItem(key, val) {
+  if (!val) {
+    return encodeQueryKey(key);
+  }
+  if (Array.isArray(val)) {
+    return val.map((_val) => `${encodeQueryKey(key)}=${encodeQueryValue(_val)}`).join("&");
+  }
+  return `${encodeQueryKey(key)}=${encodeQueryValue(val)}`;
+}
+function stringifyQuery(query) {
+  return Object.keys(query).map((k) => encodeQueryItem(k, query[k])).join("&");
+}
+
+class $URL {
+  constructor(input = "") {
+    this.query = {};
+    if (typeof input !== "string") {
+      throw new TypeError(`URL input should be string received ${typeof input} (${input})`);
+    }
+    const parsed = parseURL(input);
+    this.protocol = decode(parsed.protocol);
+    this.host = decode(parsed.host);
+    this.auth = decode(parsed.auth);
+    this.pathname = decodePath(parsed.pathname);
+    this.query = parseQuery(parsed.search);
+    this.hash = decode(parsed.hash);
+  }
+  get hostname() {
+    return parseHost(this.host).hostname;
+  }
+  get port() {
+    return parseHost(this.host).port || "";
+  }
+  get username() {
+    return parseAuth(this.auth).username;
+  }
+  get password() {
+    return parseAuth(this.auth).password || "";
+  }
+  get hasProtocol() {
+    return this.protocol.length;
+  }
+  get isAbsolute() {
+    return this.hasProtocol || this.pathname[0] === "/";
+  }
+  get search() {
+    const q = stringifyQuery(this.query);
+    return q.length ? "?" + q : "";
+  }
+  get searchParams() {
+    const p = new URLSearchParams();
+    for (const name in this.query) {
+      const value = this.query[name];
+      if (Array.isArray(value)) {
+        value.forEach((v) => p.append(name, v));
+      } else {
+        p.append(name, value || "");
+      }
+    }
+    return p;
+  }
+  get origin() {
+    return (this.protocol ? this.protocol + "//" : "") + encodeHost(this.host);
+  }
+  get fullpath() {
+    return encodePath(this.pathname) + this.search + encodeHash(this.hash);
+  }
+  get encodedAuth() {
+    if (!this.auth) {
+      return "";
+    }
+    const { username, password } = parseAuth(this.auth);
+    return encodeURIComponent(username) + (password ? ":" + encodeURIComponent(password) : "");
+  }
+  get href() {
+    const auth = this.encodedAuth;
+    const originWithAuth = (this.protocol ? this.protocol + "//" : "") + (auth ? auth + "@" : "") + encodeHost(this.host);
+    return this.hasProtocol && this.isAbsolute ? originWithAuth + this.fullpath : this.fullpath;
+  }
+  append(url) {
+    if (url.hasProtocol) {
+      throw new Error("Cannot append a URL with protocol");
+    }
+    Object.assign(this.query, url.query);
+    if (url.pathname) {
+      this.pathname = withTrailingSlash(this.pathname) + withoutLeadingSlash(url.pathname);
+    }
+    if (url.hash) {
+      this.hash = url.hash;
+    }
+  }
+  toJSON() {
+    return this.href;
+  }
+  toString() {
+    return this.href;
+  }
+}
+
+function isRelative(inputStr) {
+  return ["./", "../"].some((str) => inputStr.startsWith(str));
+}
+function hasProtocol(inputStr, acceptProtocolRelative = false) {
+  return /^\w+:\/\/.+/.test(inputStr) || acceptProtocolRelative && /^\/\/[^/]+/.test(inputStr);
+}
+const TRAILING_SLASH_RE = /\/$|\/\?/;
+function hasTrailingSlash(input = "", queryParams = false) {
+  if (!queryParams) {
+    return input.endsWith("/");
+  }
+  return TRAILING_SLASH_RE.test(input);
+}
+function withoutTrailingSlash(input = "", queryParams = false) {
+  if (!queryParams) {
+    return (hasTrailingSlash(input) ? input.slice(0, -1) : input) || "/";
+  }
+  if (!hasTrailingSlash(input, true)) {
+    return input || "/";
+  }
+  const [s0, ...s] = input.split("?");
+  return (s0.slice(0, -1) || "/") + (s.length ? `?${s.join("?")}` : "");
+}
+function withTrailingSlash(input = "", queryParams = false) {
+  if (!queryParams) {
+    return input.endsWith("/") ? input : input + "/";
+  }
+  if (hasTrailingSlash(input, true)) {
+    return input || "/";
+  }
+  const [s0, ...s] = input.split("?");
+  return s0 + "/" + (s.length ? `?${s.join("?")}` : "");
+}
+function hasLeadingSlash(input = "") {
+  return input.startsWith("/");
+}
+function withoutLeadingSlash(input = "") {
+  return (hasLeadingSlash(input) ? input.substr(1) : input) || "/";
+}
+function withLeadingSlash(input = "") {
+  return hasLeadingSlash(input) ? input : "/" + input;
+}
+function cleanDoubleSlashes(input = "") {
+  return input.split("://").map((str) => str.replace(/\/{2,}/g, "/")).join("://");
+}
+function withBase(input, base) {
+  if (isEmptyURL(base)) {
+    return input;
+  }
+  const _base = withoutTrailingSlash(base);
+  if (input.startsWith(_base)) {
+    return input;
+  }
+  return joinURL(_base, input);
+}
+function withoutBase(input, base) {
+  if (isEmptyURL(base)) {
+    return input;
+  }
+  const _base = withoutTrailingSlash(base);
+  if (input.startsWith(_base)) {
+    return input.substr(_base.length) || "/";
+  }
+  return input;
+}
+function withQuery(input, query) {
+  const parsed = parseURL(input);
+  const mergedQuery = { ...parseQuery(parsed.search), ...query };
+  parsed.search = stringifyQuery(mergedQuery);
+  return stringifyParsedURL(parsed);
+}
+function getQuery(input) {
+  return parseQuery(parseURL(input).search);
+}
+function isEmptyURL(url) {
+  return !url || url === "/";
+}
+function isNonEmptyURL(url) {
+  return url && url !== "/";
+}
+function joinURL(base, ...input) {
+  let url = base || "";
+  for (const i of input.filter(isNonEmptyURL)) {
+    url = url ? withTrailingSlash(url) + withoutLeadingSlash(i) : i;
+  }
+  return url;
+}
+function createURL(input) {
+  return new $URL(input);
+}
+function normalizeURL(input) {
+  return createURL(input).toString();
+}
+function resolveURL(base, ...input) {
+  const url = createURL(base);
+  for (const i of input.filter(isNonEmptyURL)) {
+    url.append(createURL(i));
+  }
+  return url.toString();
+}
+function isSamePath(p1, p2) {
+  return decode(withoutTrailingSlash(p1)) === decode(withoutTrailingSlash(p2));
+}
+
+function parseURL(input = "", defaultProto) {
+  if (!hasProtocol(input, true)) {
+    return defaultProto ? parseURL(defaultProto + input) : parsePath(input);
+  }
+  const [protocol = "", auth, hostAndPath] = (input.replace(/\\/g, "/").match(/([^:/]+:)?\/\/([^/@]+@)?(.*)/) || []).splice(1);
+  const [host = "", path = ""] = (hostAndPath.match(/([^/?#]*)(.*)?/) || []).splice(1);
+  const { pathname, search, hash } = parsePath(path);
+  return {
+    protocol,
+    auth: auth ? auth.substr(0, auth.length - 1) : "",
+    host,
+    pathname,
+    search,
+    hash
+  };
+}
+function parsePath(input = "") {
+  const [pathname = "", search = "", hash = ""] = (input.match(/([^#?]*)(\?[^#]*)?(#.*)?/) || []).splice(1);
+  return {
+    pathname,
+    search,
+    hash
+  };
+}
+function parseAuth(input = "") {
+  const [username, password] = input.split(":");
+  return {
+    username: decode(username),
+    password: decode(password)
+  };
+}
+function parseHost(input = "") {
+  const [hostname, port] = (input.match(/([^/]*)(:0-9+)?/) || []).splice(1);
+  return {
+    hostname: decode(hostname),
+    port
+  };
+}
+function stringifyParsedURL(parsed) {
+  const fullpath = parsed.pathname + (parsed.search ? (parsed.search.startsWith("?") ? "" : "?") + parsed.search : "") + parsed.hash;
+  if (!parsed.protocol) {
+    return fullpath;
+  }
+  return parsed.protocol + "//" + (parsed.auth ? parsed.auth + "@" : "") + parsed.host + fullpath;
+}
+
+exports.$URL = $URL;
+exports.cleanDoubleSlashes = cleanDoubleSlashes;
+exports.createURL = createURL;
+exports.decode = decode;
+exports.decodePath = decodePath;
+exports.decodeQueryValue = decodeQueryValue;
+exports.encode = encode;
+exports.encodeHash = encodeHash;
+exports.encodeHost = encodeHost;
+exports.encodeParam = encodeParam;
+exports.encodePath = encodePath;
+exports.encodeQueryItem = encodeQueryItem;
+exports.encodeQueryKey = encodeQueryKey;
+exports.encodeQueryValue = encodeQueryValue;
+exports.getQuery = getQuery;
+exports.hasLeadingSlash = hasLeadingSlash;
+exports.hasProtocol = hasProtocol;
+exports.hasTrailingSlash = hasTrailingSlash;
+exports.isEmptyURL = isEmptyURL;
+exports.isNonEmptyURL = isNonEmptyURL;
+exports.isRelative = isRelative;
+exports.isSamePath = isSamePath;
+exports.joinURL = joinURL;
+exports.normalizeURL = normalizeURL;
+exports.parseAuth = parseAuth;
+exports.parseHost = parseHost;
+exports.parsePath = parsePath;
+exports.parseQuery = parseQuery;
+exports.parseURL = parseURL;
+exports.resolveURL = resolveURL;
+exports.stringifyParsedURL = stringifyParsedURL;
+exports.stringifyQuery = stringifyQuery;
+exports.withBase = withBase;
+exports.withLeadingSlash = withLeadingSlash;
+exports.withQuery = withQuery;
+exports.withTrailingSlash = withTrailingSlash;
+exports.withoutBase = withoutBase;
+exports.withoutLeadingSlash = withoutLeadingSlash;
+exports.withoutTrailingSlash = withoutTrailingSlash;
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(19)["URLSearchParams"]))
 
 /***/ }),
 /* 6 */
@@ -827,58 +1273,68 @@ function renderStyles (styles) {
 /* 11 */
 /***/ (function(module, exports) {
 
-module.exports = require("defu");
+module.exports = require("vue-no-ssr");
 
 /***/ }),
 /* 12 */
 /***/ (function(module, exports) {
 
-module.exports = require("vue-no-ssr");
+module.exports = require("vue-client-only");
 
 /***/ }),
 /* 13 */
 /***/ (function(module, exports) {
 
-module.exports = require("url");
+module.exports = require("vue-router");
 
 /***/ }),
 /* 14 */
 /***/ (function(module, exports) {
 
-// This file is intentionally left empty for noop aliases
+module.exports = require("cookie");
 
 /***/ }),
 /* 15 */
 /***/ (function(module, exports) {
 
-module.exports = require("vue-client-only");
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports) {
-
-module.exports = require("vue-router");
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports) {
-
-module.exports = require("destr");
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports) {
-
-module.exports = require("cookie");
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports) {
-
 module.exports = require("vue-i18n");
 
 /***/ }),
-/* 20 */
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(28);
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add CSS to SSR context
+var add = __webpack_require__(10).default
+module.exports.__inject__ = function (context) {
+  add("46c24b08", content, true, context)
+};
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(30);
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add CSS to SSR context
+var add = __webpack_require__(10).default
+module.exports.__inject__ = function (context) {
+  add("7c0e6f48", content, true, context)
+};
+
+/***/ }),
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -891,581 +1347,23 @@ if(content.locals) module.exports = content.locals;
 // add CSS to SSR context
 var add = __webpack_require__(10).default
 module.exports.__inject__ = function (context) {
-  add("46c24b08", content, true, context)
+  add("1b35246b", content, true, context)
 };
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports) {
+
+module.exports = require("url");
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
+module.exports = require("node-fetch");
 
 /***/ }),
 /* 21 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(36);
-if(content.__esModule) content = content.default;
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add CSS to SSR context
-var add = __webpack_require__(10).default
-module.exports.__inject__ = function (context) {
-  add("7c0e6f48", content, true, context)
-};
-
-/***/ }),
-/* 22 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(40);
-if(content.__esModule) content = content.default;
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add CSS to SSR context
-var add = __webpack_require__(10).default
-module.exports.__inject__ = function (context) {
-  add("48e617d8", content, true, context)
-};
-
-/***/ }),
-/* 23 */
-/***/ (function(module, exports) {
-
-module.exports = require("abort-controller");
-
-/***/ }),
-/* 24 */
-/***/ (function(module, exports) {
-
-module.exports = require("web-streams-polyfill/ponyfill/es2018");
-
-/***/ }),
-/* 25 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(URL, URLSearchParams) {/* harmony import */ var core_js_modules_es_typed_array_set_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(42);
-/* harmony import */ var core_js_modules_es_typed_array_set_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_typed_array_set_js__WEBPACK_IMPORTED_MODULE_0__);
-
-
-/*! MIT License © Sindre Sorhus */
-const globals = {};
-
-const getGlobal = property => {
-  /* istanbul ignore next */
-  if (typeof self !== 'undefined' && self && property in self) {
-    return self;
-  }
-  /* istanbul ignore next */
-
-
-  if (typeof window !== 'undefined' && window && property in window) {
-    return window;
-  }
-
-  if (typeof global !== 'undefined' && global && property in global) {
-    return global;
-  }
-  /* istanbul ignore next */
-
-
-  if (typeof globalThis !== 'undefined' && globalThis) {
-    return globalThis;
-  }
-};
-
-const globalProperties = ['Headers', 'Request', 'Response', 'ReadableStream', 'fetch', 'AbortController', 'FormData'];
-
-for (const property of globalProperties) {
-  Object.defineProperty(globals, property, {
-    get() {
-      const globalObject = getGlobal(property);
-      const value = globalObject && globalObject[property];
-      return typeof value === 'function' ? value.bind(globalObject) : value;
-    }
-
-  });
-}
-
-const isObject = value => value !== null && typeof value === 'object';
-
-const supportsAbortController = typeof globals.AbortController === 'function';
-const supportsStreams = typeof globals.ReadableStream === 'function';
-const supportsFormData = typeof globals.FormData === 'function';
-
-const mergeHeaders = (source1, source2) => {
-  const result = new globals.Headers(source1 || {});
-  const isHeadersInstance = source2 instanceof globals.Headers;
-  const source = new globals.Headers(source2 || {});
-
-  for (const [key, value] of source) {
-    if (isHeadersInstance && value === 'undefined' || value === undefined) {
-      result.delete(key);
-    } else {
-      result.set(key, value);
-    }
-  }
-
-  return result;
-};
-
-const deepMerge = (...sources) => {
-  let returnValue = {};
-  let headers = {};
-
-  for (const source of sources) {
-    if (Array.isArray(source)) {
-      if (!Array.isArray(returnValue)) {
-        returnValue = [];
-      }
-
-      returnValue = [...returnValue, ...source];
-    } else if (isObject(source)) {
-      for (let [key, value] of Object.entries(source)) {
-        if (isObject(value) && key in returnValue) {
-          value = deepMerge(returnValue[key], value);
-        }
-
-        returnValue = { ...returnValue,
-          [key]: value
-        };
-      }
-
-      if (isObject(source.headers)) {
-        headers = mergeHeaders(headers, source.headers);
-      }
-    }
-
-    returnValue.headers = headers;
-  }
-
-  return returnValue;
-};
-
-const requestMethods = ['get', 'post', 'put', 'patch', 'head', 'delete'];
-const responseTypes = {
-  json: 'application/json',
-  text: 'text/*',
-  formData: 'multipart/form-data',
-  arrayBuffer: '*/*',
-  blob: '*/*'
-};
-const retryMethods = ['get', 'put', 'head', 'delete', 'options', 'trace'];
-const retryStatusCodes = [408, 413, 429, 500, 502, 503, 504];
-const retryAfterStatusCodes = [413, 429, 503];
-const stop = Symbol('stop');
-
-class HTTPError extends Error {
-  constructor(response) {
-    // Set the message to the status text, such as Unauthorized,
-    // with some fallbacks. This message should never be undefined.
-    super(response.statusText || String(response.status === 0 || response.status ? response.status : 'Unknown response error'));
-    this.name = 'HTTPError';
-    this.response = response;
-  }
-
-}
-
-class TimeoutError extends Error {
-  constructor(request) {
-    super('Request timed out');
-    this.name = 'TimeoutError';
-    this.request = request;
-  }
-
-}
-
-const delay = ms => new Promise(resolve => setTimeout(resolve, ms)); // `Promise.race()` workaround (#91)
-
-
-const timeout = (request, abortController, options) => new Promise((resolve, reject) => {
-  const timeoutID = setTimeout(() => {
-    if (abortController) {
-      abortController.abort();
-    }
-
-    reject(new TimeoutError(request));
-  }, options.timeout);
-  /* eslint-disable promise/prefer-await-to-then */
-
-  options.fetch(request).then(resolve).catch(reject).then(() => {
-    clearTimeout(timeoutID);
-  });
-  /* eslint-enable promise/prefer-await-to-then */
-});
-
-const normalizeRequestMethod = input => requestMethods.includes(input) ? input.toUpperCase() : input;
-
-const defaultRetryOptions = {
-  limit: 2,
-  methods: retryMethods,
-  statusCodes: retryStatusCodes,
-  afterStatusCodes: retryAfterStatusCodes
-};
-
-const normalizeRetryOptions = (retry = {}) => {
-  if (typeof retry === 'number') {
-    return { ...defaultRetryOptions,
-      limit: retry
-    };
-  }
-
-  if (retry.methods && !Array.isArray(retry.methods)) {
-    throw new Error('retry.methods must be an array');
-  }
-
-  if (retry.statusCodes && !Array.isArray(retry.statusCodes)) {
-    throw new Error('retry.statusCodes must be an array');
-  }
-
-  return { ...defaultRetryOptions,
-    ...retry,
-    afterStatusCodes: retryAfterStatusCodes
-  };
-}; // The maximum value of a 32bit int (see issue #117)
-
-
-const maxSafeTimeout = 2147483647;
-
-class Ky {
-  constructor(input, options = {}) {
-    this._retryCount = 0;
-    this._input = input;
-    this._options = {
-      // TODO: credentials can be removed when the spec change is implemented in all browsers. Context: https://www.chromestatus.com/feature/4539473312350208
-      credentials: this._input.credentials || 'same-origin',
-      ...options,
-      headers: mergeHeaders(this._input.headers, options.headers),
-      hooks: deepMerge({
-        beforeRequest: [],
-        beforeRetry: [],
-        afterResponse: []
-      }, options.hooks),
-      method: normalizeRequestMethod(options.method || this._input.method),
-      prefixUrl: String(options.prefixUrl || ''),
-      retry: normalizeRetryOptions(options.retry),
-      throwHttpErrors: options.throwHttpErrors !== false,
-      timeout: typeof options.timeout === 'undefined' ? 10000 : options.timeout,
-      fetch: options.fetch || globals.fetch
-    };
-
-    if (typeof this._input !== 'string' && !(this._input instanceof URL || this._input instanceof globals.Request)) {
-      throw new TypeError('`input` must be a string, URL, or Request');
-    }
-
-    if (this._options.prefixUrl && typeof this._input === 'string') {
-      if (this._input.startsWith('/')) {
-        throw new Error('`input` must not begin with a slash when using `prefixUrl`');
-      }
-
-      if (!this._options.prefixUrl.endsWith('/')) {
-        this._options.prefixUrl += '/';
-      }
-
-      this._input = this._options.prefixUrl + this._input;
-    }
-
-    if (supportsAbortController) {
-      this.abortController = new globals.AbortController();
-
-      if (this._options.signal) {
-        this._options.signal.addEventListener('abort', () => {
-          this.abortController.abort();
-        });
-      }
-
-      this._options.signal = this.abortController.signal;
-    }
-
-    this.request = new globals.Request(this._input, this._options);
-
-    if (this._options.searchParams) {
-      const searchParams = '?' + new URLSearchParams(this._options.searchParams).toString();
-      const url = this.request.url.replace(/(?:\?.*?)?(?=#|$)/, searchParams); // To provide correct form boundary, Content-Type header should be deleted each time when new Request instantiated from another one
-
-      if ((supportsFormData && this._options.body instanceof globals.FormData || this._options.body instanceof URLSearchParams) && !(this._options.headers && this._options.headers['content-type'])) {
-        this.request.headers.delete('content-type');
-      }
-
-      this.request = new globals.Request(new globals.Request(url, this.request), this._options);
-    }
-
-    if (this._options.json !== undefined) {
-      this._options.body = JSON.stringify(this._options.json);
-      this.request.headers.set('content-type', 'application/json');
-      this.request = new globals.Request(this.request, {
-        body: this._options.body
-      });
-    }
-
-    const fn = async () => {
-      if (this._options.timeout > maxSafeTimeout) {
-        throw new RangeError(`The \`timeout\` option cannot be greater than ${maxSafeTimeout}`);
-      }
-
-      await delay(1);
-      let response = await this._fetch();
-
-      for (const hook of this._options.hooks.afterResponse) {
-        // eslint-disable-next-line no-await-in-loop
-        const modifiedResponse = await hook(this.request, this._options, this._decorateResponse(response.clone()));
-
-        if (modifiedResponse instanceof globals.Response) {
-          response = modifiedResponse;
-        }
-      }
-
-      this._decorateResponse(response);
-
-      if (!response.ok && this._options.throwHttpErrors) {
-        throw new HTTPError(response);
-      } // If `onDownloadProgress` is passed, it uses the stream API internally
-
-      /* istanbul ignore next */
-
-
-      if (this._options.onDownloadProgress) {
-        if (typeof this._options.onDownloadProgress !== 'function') {
-          throw new TypeError('The `onDownloadProgress` option must be a function');
-        }
-
-        if (!supportsStreams) {
-          throw new Error('Streams are not supported in your environment. `ReadableStream` is missing.');
-        }
-
-        return this._stream(response.clone(), this._options.onDownloadProgress);
-      }
-
-      return response;
-    };
-
-    const isRetriableMethod = this._options.retry.methods.includes(this.request.method.toLowerCase());
-
-    const result = isRetriableMethod ? this._retry(fn) : fn();
-
-    for (const [type, mimeType] of Object.entries(responseTypes)) {
-      result[type] = async () => {
-        this.request.headers.set('accept', this.request.headers.get('accept') || mimeType);
-        const response = (await result).clone();
-
-        if (type === 'json') {
-          if (response.status === 204) {
-            return '';
-          }
-
-          if (options.parseJson) {
-            return options.parseJson(await response.text());
-          }
-        }
-
-        return response[type]();
-      };
-    }
-
-    return result;
-  }
-
-  _calculateRetryDelay(error) {
-    this._retryCount++;
-
-    if (this._retryCount < this._options.retry.limit && !(error instanceof TimeoutError)) {
-      if (error instanceof HTTPError) {
-        if (!this._options.retry.statusCodes.includes(error.response.status)) {
-          return 0;
-        }
-
-        const retryAfter = error.response.headers.get('Retry-After');
-
-        if (retryAfter && this._options.retry.afterStatusCodes.includes(error.response.status)) {
-          let after = Number(retryAfter);
-
-          if (Number.isNaN(after)) {
-            after = Date.parse(retryAfter) - Date.now();
-          } else {
-            after *= 1000;
-          }
-
-          if (typeof this._options.retry.maxRetryAfter !== 'undefined' && after > this._options.retry.maxRetryAfter) {
-            return 0;
-          }
-
-          return after;
-        }
-
-        if (error.response.status === 413) {
-          return 0;
-        }
-      }
-
-      const BACKOFF_FACTOR = 0.3;
-      return BACKOFF_FACTOR * 2 ** (this._retryCount - 1) * 1000;
-    }
-
-    return 0;
-  }
-
-  _decorateResponse(response) {
-    if (this._options.parseJson) {
-      response.json = async () => {
-        return this._options.parseJson(await response.text());
-      };
-    }
-
-    return response;
-  }
-
-  async _retry(fn) {
-    try {
-      return await fn();
-    } catch (error) {
-      const ms = Math.min(this._calculateRetryDelay(error), maxSafeTimeout);
-
-      if (ms !== 0 && this._retryCount > 0) {
-        await delay(ms);
-
-        for (const hook of this._options.hooks.beforeRetry) {
-          // eslint-disable-next-line no-await-in-loop
-          const hookResult = await hook({
-            request: this.request,
-            options: this._options,
-            error,
-            retryCount: this._retryCount
-          }); // If `stop` is returned from the hook, the retry process is stopped
-
-          if (hookResult === stop) {
-            return;
-          }
-        }
-
-        return this._retry(fn);
-      }
-
-      if (this._options.throwHttpErrors) {
-        throw error;
-      }
-    }
-  }
-
-  async _fetch() {
-    for (const hook of this._options.hooks.beforeRequest) {
-      // eslint-disable-next-line no-await-in-loop
-      const result = await hook(this.request, this._options);
-
-      if (result instanceof Request) {
-        this.request = result;
-        break;
-      }
-
-      if (result instanceof Response) {
-        return result;
-      }
-    }
-
-    if (this._options.timeout === false) {
-      return this._options.fetch(this.request.clone());
-    }
-
-    return timeout(this.request.clone(), this.abortController, this._options);
-  }
-  /* istanbul ignore next */
-
-
-  _stream(response, onDownloadProgress) {
-    const totalBytes = Number(response.headers.get('content-length')) || 0;
-    let transferredBytes = 0;
-    return new globals.Response(new globals.ReadableStream({
-      start(controller) {
-        const reader = response.body.getReader();
-
-        if (onDownloadProgress) {
-          onDownloadProgress({
-            percent: 0,
-            transferredBytes: 0,
-            totalBytes
-          }, new Uint8Array());
-        }
-
-        async function read() {
-          const {
-            done,
-            value
-          } = await reader.read();
-
-          if (done) {
-            controller.close();
-            return;
-          }
-
-          if (onDownloadProgress) {
-            transferredBytes += value.byteLength;
-            const percent = totalBytes === 0 ? 0 : transferredBytes / totalBytes;
-            onDownloadProgress({
-              percent,
-              transferredBytes,
-              totalBytes
-            }, value);
-          }
-
-          controller.enqueue(value);
-          read();
-        }
-
-        read();
-      }
-
-    }));
-  }
-
-}
-
-const validateAndMerge = (...sources) => {
-  for (const source of sources) {
-    if ((!isObject(source) || Array.isArray(source)) && typeof source !== 'undefined') {
-      throw new TypeError('The `options` argument must be an object');
-    }
-  }
-
-  return deepMerge({}, ...sources);
-};
-
-const createInstance = defaults => {
-  const ky = (input, options) => new Ky(input, validateAndMerge(defaults, options));
-
-  for (const method of requestMethods) {
-    ky[method] = (input, options) => new Ky(input, validateAndMerge(defaults, options, {
-      method
-    }));
-  }
-
-  ky.HTTPError = HTTPError;
-  ky.TimeoutError = TimeoutError;
-
-  ky.create = newDefaults => createInstance(validateAndMerge(newDefaults));
-
-  ky.extend = newDefaults => createInstance(validateAndMerge(defaults, newDefaults));
-
-  ky.stop = stop;
-  return ky;
-};
-
-/* harmony default export */ __webpack_exports__["a"] = (createInstance());
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(13)["URL"], __webpack_require__(13)["URLSearchParams"]))
-
-/***/ }),
-/* 26 */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"nav\":{\"home\":\"Homepage\",\"about\":\"About Us\"},\"home\":{\"metatilte\":\"This is the Homepage\",\"welcome\":\"Welcome!\"},\"about\":{\"metatilte\":\"The About Us\",\"aboutus\":\"About Us\"}}");
-
-/***/ }),
-/* 27 */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"nav\":{\"home\":\"Anasayfa\",\"about\":\"Hakkımızda\"},\"home\":{\"metatilte\":\"Anasayfaya Hoşgeldiniz\",\"welcome\":\"Hoşgeldin\"},\"about\":{\"metatilte\":\"Hakkımızda Sayfası\",\"aboutus\":\"Hakkımızda\"}}");
-
-/***/ }),
-/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1498,36 +1396,36 @@ function isHTTPS(req, trustProxy = true) {
 module.exports = isHTTPS;
 
 /***/ }),
-/* 29 */
+/* 22 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(URLSearchParams) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return nuxtI18nHead; });
-/* harmony import */ var core_js_modules_esnext_map_delete_all_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(44);
+/* harmony import */ var core_js_modules_esnext_map_delete_all_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(37);
 /* harmony import */ var core_js_modules_esnext_map_delete_all_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_map_delete_all_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var core_js_modules_esnext_map_every_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(45);
+/* harmony import */ var core_js_modules_esnext_map_every_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(38);
 /* harmony import */ var core_js_modules_esnext_map_every_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_map_every_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var core_js_modules_esnext_map_filter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(46);
+/* harmony import */ var core_js_modules_esnext_map_filter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(39);
 /* harmony import */ var core_js_modules_esnext_map_filter_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_map_filter_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var core_js_modules_esnext_map_find_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(47);
+/* harmony import */ var core_js_modules_esnext_map_find_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(40);
 /* harmony import */ var core_js_modules_esnext_map_find_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_map_find_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var core_js_modules_esnext_map_find_key_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(48);
+/* harmony import */ var core_js_modules_esnext_map_find_key_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(41);
 /* harmony import */ var core_js_modules_esnext_map_find_key_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_map_find_key_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var core_js_modules_esnext_map_includes_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(49);
+/* harmony import */ var core_js_modules_esnext_map_includes_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(42);
 /* harmony import */ var core_js_modules_esnext_map_includes_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_map_includes_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var core_js_modules_esnext_map_key_of_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(50);
+/* harmony import */ var core_js_modules_esnext_map_key_of_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(43);
 /* harmony import */ var core_js_modules_esnext_map_key_of_js__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_map_key_of_js__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var core_js_modules_esnext_map_map_keys_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(51);
+/* harmony import */ var core_js_modules_esnext_map_map_keys_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(44);
 /* harmony import */ var core_js_modules_esnext_map_map_keys_js__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_map_map_keys_js__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var core_js_modules_esnext_map_map_values_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(52);
+/* harmony import */ var core_js_modules_esnext_map_map_values_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(45);
 /* harmony import */ var core_js_modules_esnext_map_map_values_js__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_map_map_values_js__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var core_js_modules_esnext_map_merge_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(53);
+/* harmony import */ var core_js_modules_esnext_map_merge_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(46);
 /* harmony import */ var core_js_modules_esnext_map_merge_js__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_map_merge_js__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var core_js_modules_esnext_map_reduce_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(54);
+/* harmony import */ var core_js_modules_esnext_map_reduce_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(47);
 /* harmony import */ var core_js_modules_esnext_map_reduce_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_map_reduce_js__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var core_js_modules_esnext_map_some_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(55);
+/* harmony import */ var core_js_modules_esnext_map_some_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(48);
 /* harmony import */ var core_js_modules_esnext_map_some_js__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_map_some_js__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var core_js_modules_esnext_map_update_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(56);
+/* harmony import */ var core_js_modules_esnext_map_update_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(49);
 /* harmony import */ var core_js_modules_esnext_map_update_js__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_esnext_map_update_js__WEBPACK_IMPORTED_MODULE_12__);
 /* harmony import */ var vue_meta__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(7);
 /* harmony import */ var vue_meta__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(vue_meta__WEBPACK_IMPORTED_MODULE_13__);
@@ -1786,24 +1684,30 @@ function nuxtI18nHead({
 
   return metaObject;
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(13)["URLSearchParams"]))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(19)["URLSearchParams"]))
 
 /***/ }),
-/* 30 */
-/***/ (function(module) {
+/* 23 */
+/***/ (function(module, exports) {
 
-module.exports = JSON.parse("{\"title\":\"nuxt-boilerplate\",\"meta\":[{\"hid\":\"charset\",\"charset\":\"utf-8\"},{\"hid\":\"viewport\",\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"},{\"hid\":\"mobile-web-app-capable\",\"name\":\"mobile-web-app-capable\",\"content\":\"yes\"},{\"hid\":\"apple-mobile-web-app-title\",\"name\":\"apple-mobile-web-app-title\",\"content\":\"nuxt-boilerplate\"},{\"hid\":\"description\",\"name\":\"description\",\"content\":\"## Build Setup\"},{\"hid\":\"og:type\",\"name\":\"og:type\",\"property\":\"og:type\",\"content\":\"website\"},{\"hid\":\"og:title\",\"name\":\"og:title\",\"property\":\"og:title\",\"content\":\"nuxt-boilerplate\"},{\"hid\":\"og:site_name\",\"name\":\"og:site_name\",\"property\":\"og:site_name\",\"content\":\"nuxt-boilerplate\"},{\"hid\":\"og:description\",\"name\":\"og:description\",\"property\":\"og:description\",\"content\":\"## Build Setup\"}],\"link\":[{\"hid\":\"shortcut-icon\",\"rel\":\"shortcut icon\",\"href\":\"/_nuxt/icons/icon_64x64.e3e9fb.png\"},{\"hid\":\"apple-touch-icon\",\"rel\":\"apple-touch-icon\",\"href\":\"/_nuxt/icons/icon_512x512.e3e9fb.png\",\"sizes\":\"512x512\"},{\"rel\":\"manifest\",\"href\":\"/_nuxt/manifest.b35eea1a.json\",\"hid\":\"manifest\"}],\"htmlAttrs\":{\"lang\":\"en\"}}");
+module.exports = require("defu");
 
 /***/ }),
-/* 31 */
+/* 24 */
+/***/ (function(module, exports) {
+
+module.exports = require("vue-clickaway");
+
+/***/ }),
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(32);
-module.exports = __webpack_require__(57);
+__webpack_require__(26);
+module.exports = __webpack_require__(50);
 
 
 /***/ }),
-/* 32 */
+/* 26 */
 /***/ (function(module, exports) {
 
 global.installComponents = function (component, components) {
@@ -1847,18 +1751,18 @@ function provideFunctionalComponents(component, components) {
 
 
 /***/ }),
-/* 33 */
+/* 27 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_error_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(20);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_error_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(16);
 /* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_error_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_error_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_error_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_error_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
-/* 34 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -1872,18 +1776,18 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 35 */
+/* 29 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_loading_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(21);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_loading_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(17);
 /* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_loading_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_loading_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_loading_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_nuxt_loading_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
-/* 36 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
@@ -1897,155 +1801,154 @@ module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 37 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(38);
+var content = __webpack_require__(32);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 __webpack_require__(10).default("1992bd8b", content, true)
 
 /***/ }),
-/* 38 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(9);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, "/*! tailwindcss v3.0.18 | MIT License | https://tailwindcss.com*//*\n1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)\n2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)\n*/\n\n*,\n::before,\n::after {\n  box-sizing: border-box; /* 1 */\n  border-width: 0; /* 2 */\n  border-style: solid; /* 2 */\n  border-color: #e5e7eb; /* 2 */\n}\n\n::before,\n::after {\n  --tw-content: '';\n}\n\n/*\n1. Use a consistent sensible line-height in all browsers.\n2. Prevent adjustments of font size after orientation changes in iOS.\n3. Use a more readable tab size.\n4. Use the user's configured `sans` font-family by default.\n*/\n\nhtml {\n  line-height: 1.5; /* 1 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n  -moz-tab-size: 4; /* 3 */\n  -o-tab-size: 4;\n     tab-size: 4; /* 3 */\n  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; /* 4 */\n}\n\n/*\n1. Remove the margin in all browsers.\n2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.\n*/\n\nbody {\n  margin: 0; /* 1 */\n  line-height: inherit; /* 2 */\n}\n\n/*\n1. Add the correct height in Firefox.\n2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)\n3. Ensure horizontal rules are visible by default.\n*/\n\nhr {\n  height: 0; /* 1 */\n  color: inherit; /* 2 */\n  border-top-width: 1px; /* 3 */\n}\n\n/*\nAdd the correct text decoration in Chrome, Edge, and Safari.\n*/\n\nabbr:where([title]) {\n  -webkit-text-decoration: underline dotted;\n          text-decoration: underline dotted;\n}\n\n/*\nRemove the default font size and weight for headings.\n*/\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: inherit;\n  font-weight: inherit;\n}\n\n/*\nReset links to optimize for opt-in styling instead of opt-out.\n*/\n\na {\n  color: inherit;\n  text-decoration: inherit;\n}\n\n/*\nAdd the correct font weight in Edge and Safari.\n*/\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/*\n1. Use the user's configured `mono` font family by default.\n2. Correct the odd `em` font sizing in all browsers.\n*/\n\ncode,\nkbd,\nsamp,\npre {\n  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace; /* 1 */\n  font-size: 1em; /* 2 */\n}\n\n/*\nAdd the correct font size in all browsers.\n*/\n\nsmall {\n  font-size: 80%;\n}\n\n/*\nPrevent `sub` and `sup` elements from affecting the line height in all browsers.\n*/\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/*\n1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)\n2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)\n3. Remove gaps between table borders by default.\n*/\n\ntable {\n  text-indent: 0; /* 1 */\n  border-color: inherit; /* 2 */\n  border-collapse: collapse; /* 3 */\n}\n\n/*\n1. Change the font styles in all browsers.\n2. Remove the margin in Firefox and Safari.\n3. Remove default padding in all browsers.\n*/\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit; /* 1 */\n  font-size: 100%; /* 1 */\n  line-height: inherit; /* 1 */\n  color: inherit; /* 1 */\n  margin: 0; /* 2 */\n  padding: 0; /* 3 */\n}\n\n/*\nRemove the inheritance of text transform in Edge and Firefox.\n*/\n\nbutton,\nselect {\n  text-transform: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Remove default button styles.\n*/\n\nbutton,\n[type='button'],\n[type='reset'],\n[type='submit'] {\n  -webkit-appearance: button; /* 1 */\n  background-color: transparent; /* 2 */\n  background-image: none; /* 2 */\n}\n\n/*\nUse the modern Firefox focus style for all focusable elements.\n*/\n\n:-moz-focusring {\n  outline: auto;\n}\n\n/*\nRemove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)\n*/\n\n:-moz-ui-invalid {\n  box-shadow: none;\n}\n\n/*\nAdd the correct vertical alignment in Chrome and Firefox.\n*/\n\nprogress {\n  vertical-align: baseline;\n}\n\n/*\nCorrect the cursor style of increment and decrement buttons in Safari.\n*/\n\n::-webkit-inner-spin-button,\n::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/*\n1. Correct the odd appearance in Chrome and Safari.\n2. Correct the outline style in Safari.\n*/\n\n[type='search'] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/*\nRemove the inner padding in Chrome and Safari on macOS.\n*/\n\n::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Change font properties to `inherit` in Safari.\n*/\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n\n/*\nAdd the correct display in Chrome and Safari.\n*/\n\nsummary {\n  display: list-item;\n}\n\n/*\nRemoves the default spacing and border for appropriate elements.\n*/\n\nblockquote,\ndl,\ndd,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\nhr,\nfigure,\np,\npre {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n}\n\nlegend {\n  padding: 0;\n}\n\nol,\nul,\nmenu {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n/*\nPrevent resizing textareas horizontally by default.\n*/\n\ntextarea {\n  resize: vertical;\n}\n\n/*\n1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)\n2. Set the default placeholder color to the user's configured gray 400 color.\n*/\n\ninput::-moz-placeholder, textarea::-moz-placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\ninput:-ms-input-placeholder, textarea:-ms-input-placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\ninput::placeholder,\ntextarea::placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\n/*\nSet the default cursor for buttons.\n*/\n\nbutton,\n[role=\"button\"] {\n  cursor: pointer;\n}\n\n/*\nMake sure disabled buttons don't get the pointer cursor.\n*/\n:disabled {\n  cursor: default;\n}\n\n/*\n1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)\n2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)\n   This can trigger a poorly considered lint error in some tools but is included by design.\n*/\n\nimg,\nsvg,\nvideo,\ncanvas,\naudio,\niframe,\nembed,\nobject {\n  display: block; /* 1 */\n  vertical-align: middle; /* 2 */\n}\n\n/*\nConstrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)\n*/\n\nimg,\nvideo {\n  max-width: 100%;\n  height: auto;\n}\n\n/*\nEnsure the default browser behavior of the `hidden` attribute.\n*/\n\n[hidden] {\n  display: none;\n}*, ::before, ::after{--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;}.container{width:100%;}@media (min-width: 640px){.container{max-width:640px;}}@media (min-width: 768px){.container{max-width:768px;}}@media (min-width: 1024px){.container{max-width:1024px;}}@media (min-width: 1280px){.container{max-width:1280px;}}@media (min-width: 1536px){.container{max-width:1536px;}}.static{position:static;}.col-span-3{grid-column:span 3 / span 3;}.col-span-1{grid-column:span 1 / span 1;}.mx-auto{margin-left:auto;margin-right:auto;}.mt-4{margin-top:1rem;}.mt-20{margin-top:5rem;}.mr-5{margin-right:1.25rem;}.mt-10{margin-top:2.5rem;}.mt-6{margin-top:1.5rem;}.mb-2{margin-bottom:0.5rem;}.mb-4{margin-bottom:1rem;}.grid{display:grid;}.h-48{height:12rem;}.w-96{width:24rem;}.grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr));}.justify-self-end{justify-self:end;}.rounded-md{border-radius:0.375rem;}.rounded-lg{border-radius:0.5rem;}.border{border-width:1px;}.border-b-2{border-bottom-width:2px;}.border-slate-800{--tw-border-opacity:1;border-color:rgb(30 41 59 / var(--tw-border-opacity));}.bg-lime-400{--tw-bg-opacity:1;background-color:rgb(163 230 53 / var(--tw-bg-opacity));}.object-cover{-o-object-fit:cover;object-fit:cover;}.px-4{padding-left:1rem;padding-right:1rem;}.py-2{padding-top:0.5rem;padding-bottom:0.5rem;}.pb-2{padding-bottom:0.5rem;}.text-2xl{font-size:1.5rem;line-height:2rem;}.text-lg{font-size:1.125rem;line-height:1.75rem;}.text-xl{font-size:1.25rem;line-height:1.75rem;}.font-bold{font-weight:700;}.font-semibold{font-weight:600;}.text-lime-600{--tw-text-opacity:1;color:rgb(101 163 13 / var(--tw-text-opacity));}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity));}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity));}.underline{-webkit-text-decoration-line:underline;text-decoration-line:underline;}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);}.ease-in-out{transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);}@media (min-width: 768px){.md\\:px-0{padding-left:0px;padding-right:0px;}}", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, "/*! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com*//*\n1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)\n2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)\n*/\n\n*,\n::before,\n::after {\n  box-sizing: border-box; /* 1 */\n  border-width: 0; /* 2 */\n  border-style: solid; /* 2 */\n  border-color: #e5e7eb; /* 2 */\n}\n\n::before,\n::after {\n  --tw-content: '';\n}\n\n/*\n1. Use a consistent sensible line-height in all browsers.\n2. Prevent adjustments of font size after orientation changes in iOS.\n3. Use a more readable tab size.\n4. Use the user's configured `sans` font-family by default.\n*/\n\nhtml {\n  line-height: 1.5; /* 1 */\n  -webkit-text-size-adjust: 100%; /* 2 */\n  -moz-tab-size: 4; /* 3 */\n  -o-tab-size: 4;\n     tab-size: 4; /* 3 */\n  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"; /* 4 */\n}\n\n/*\n1. Remove the margin in all browsers.\n2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.\n*/\n\nbody {\n  margin: 0; /* 1 */\n  line-height: inherit; /* 2 */\n}\n\n/*\n1. Add the correct height in Firefox.\n2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)\n3. Ensure horizontal rules are visible by default.\n*/\n\nhr {\n  height: 0; /* 1 */\n  color: inherit; /* 2 */\n  border-top-width: 1px; /* 3 */\n}\n\n/*\nAdd the correct text decoration in Chrome, Edge, and Safari.\n*/\n\nabbr:where([title]) {\n  -webkit-text-decoration: underline dotted;\n          text-decoration: underline dotted;\n}\n\n/*\nRemove the default font size and weight for headings.\n*/\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-size: inherit;\n  font-weight: inherit;\n}\n\n/*\nReset links to optimize for opt-in styling instead of opt-out.\n*/\n\na {\n  color: inherit;\n  text-decoration: inherit;\n}\n\n/*\nAdd the correct font weight in Edge and Safari.\n*/\n\nb,\nstrong {\n  font-weight: bolder;\n}\n\n/*\n1. Use the user's configured `mono` font family by default.\n2. Correct the odd `em` font sizing in all browsers.\n*/\n\ncode,\nkbd,\nsamp,\npre {\n  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace; /* 1 */\n  font-size: 1em; /* 2 */\n}\n\n/*\nAdd the correct font size in all browsers.\n*/\n\nsmall {\n  font-size: 80%;\n}\n\n/*\nPrevent `sub` and `sup` elements from affecting the line height in all browsers.\n*/\n\nsub,\nsup {\n  font-size: 75%;\n  line-height: 0;\n  position: relative;\n  vertical-align: baseline;\n}\n\nsub {\n  bottom: -0.25em;\n}\n\nsup {\n  top: -0.5em;\n}\n\n/*\n1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)\n2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)\n3. Remove gaps between table borders by default.\n*/\n\ntable {\n  text-indent: 0; /* 1 */\n  border-color: inherit; /* 2 */\n  border-collapse: collapse; /* 3 */\n}\n\n/*\n1. Change the font styles in all browsers.\n2. Remove the margin in Firefox and Safari.\n3. Remove default padding in all browsers.\n*/\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  font-family: inherit; /* 1 */\n  font-size: 100%; /* 1 */\n  line-height: inherit; /* 1 */\n  color: inherit; /* 1 */\n  margin: 0; /* 2 */\n  padding: 0; /* 3 */\n}\n\n/*\nRemove the inheritance of text transform in Edge and Firefox.\n*/\n\nbutton,\nselect {\n  text-transform: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Remove default button styles.\n*/\n\nbutton,\n[type='button'],\n[type='reset'],\n[type='submit'] {\n  -webkit-appearance: button; /* 1 */\n  background-color: transparent; /* 2 */\n  background-image: none; /* 2 */\n}\n\n/*\nUse the modern Firefox focus style for all focusable elements.\n*/\n\n:-moz-focusring {\n  outline: auto;\n}\n\n/*\nRemove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)\n*/\n\n:-moz-ui-invalid {\n  box-shadow: none;\n}\n\n/*\nAdd the correct vertical alignment in Chrome and Firefox.\n*/\n\nprogress {\n  vertical-align: baseline;\n}\n\n/*\nCorrect the cursor style of increment and decrement buttons in Safari.\n*/\n\n::-webkit-inner-spin-button,\n::-webkit-outer-spin-button {\n  height: auto;\n}\n\n/*\n1. Correct the odd appearance in Chrome and Safari.\n2. Correct the outline style in Safari.\n*/\n\n[type='search'] {\n  -webkit-appearance: textfield; /* 1 */\n  outline-offset: -2px; /* 2 */\n}\n\n/*\nRemove the inner padding in Chrome and Safari on macOS.\n*/\n\n::-webkit-search-decoration {\n  -webkit-appearance: none;\n}\n\n/*\n1. Correct the inability to style clickable types in iOS and Safari.\n2. Change font properties to `inherit` in Safari.\n*/\n\n::-webkit-file-upload-button {\n  -webkit-appearance: button; /* 1 */\n  font: inherit; /* 2 */\n}\n\n/*\nAdd the correct display in Chrome and Safari.\n*/\n\nsummary {\n  display: list-item;\n}\n\n/*\nRemoves the default spacing and border for appropriate elements.\n*/\n\nblockquote,\ndl,\ndd,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\nhr,\nfigure,\np,\npre {\n  margin: 0;\n}\n\nfieldset {\n  margin: 0;\n  padding: 0;\n}\n\nlegend {\n  padding: 0;\n}\n\nol,\nul,\nmenu {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n/*\nPrevent resizing textareas horizontally by default.\n*/\n\ntextarea {\n  resize: vertical;\n}\n\n/*\n1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)\n2. Set the default placeholder color to the user's configured gray 400 color.\n*/\n\ninput::-moz-placeholder, textarea::-moz-placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\ninput:-ms-input-placeholder, textarea:-ms-input-placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\ninput::placeholder,\ntextarea::placeholder {\n  opacity: 1; /* 1 */\n  color: #9ca3af; /* 2 */\n}\n\n/*\nSet the default cursor for buttons.\n*/\n\nbutton,\n[role=\"button\"] {\n  cursor: pointer;\n}\n\n/*\nMake sure disabled buttons don't get the pointer cursor.\n*/\n:disabled {\n  cursor: default;\n}\n\n/*\n1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)\n2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)\n   This can trigger a poorly considered lint error in some tools but is included by design.\n*/\n\nimg,\nsvg,\nvideo,\ncanvas,\naudio,\niframe,\nembed,\nobject {\n  display: block; /* 1 */\n  vertical-align: middle; /* 2 */\n}\n\n/*\nConstrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)\n*/\n\nimg,\nvideo {\n  max-width: 100%;\n  height: auto;\n}\n\n/*\nEnsure the default browser behavior of the `hidden` attribute.\n*/\n\n[hidden] {\n  display: none;\n}*, ::before, ::after{--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;}.static{position:static;}.relative{position:relative;}.z-0{z-index:0;}.mx-auto{margin-left:auto;margin-right:auto;}.ml-10{margin-left:2.5rem;}.ml-4{margin-left:1rem;}.ml-3{margin-left:0.75rem;}.-mr-2{margin-right:-0.5rem;}.mt-1{margin-top:0.25rem;}.block{display:block;}.flex{display:flex;}.inline-flex{display:inline-flex;}.hidden{display:none;}.h-16{height:4rem;}.h-8{height:2rem;}.h-6{height:1.5rem;}.h-screen{height:100vh;}.w-full{width:100%;}.w-8{width:2rem;}.w-6{width:1.5rem;}.flex-shrink-0{flex-shrink:0;}.grow{flex-grow:1;}.flex-col{flex-direction:column;}.items-center{align-items:center;}.items-baseline{align-items:baseline;}.justify-center{justify-content:center;}.justify-between{justify-content:space-between;}.rounded-md{border-radius:0.375rem;}.border-t{border-top-width:1px;}.border-gray-700{--tw-border-opacity:1;border-color:rgb(55 65 81 / var(--tw-border-opacity));}.bg-slate-200{--tw-bg-opacity:1;background-color:rgb(226 232 240 / var(--tw-bg-opacity));}.bg-slate-300{--tw-bg-opacity:1;background-color:rgb(203 213 225 / var(--tw-bg-opacity));}.bg-gray-700{--tw-bg-opacity:1;background-color:rgb(55 65 81 / var(--tw-bg-opacity));}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity));}.p-2{padding:0.5rem;}.p-4{padding:1rem;}.px-4{padding-left:1rem;padding-right:1rem;}.px-2{padding-left:0.5rem;padding-right:0.5rem;}.px-3{padding-left:0.75rem;padding-right:0.75rem;}.py-2{padding-top:0.5rem;padding-bottom:0.5rem;}.pt-2{padding-top:0.5rem;}.pb-3{padding-bottom:0.75rem;}.text-base{font-size:1rem;line-height:1.5rem;}.font-medium{font-weight:500;}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity));}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity));}.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms;}.ease-in-out{transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);}.hover\\:bg-gray-700:hover{--tw-bg-opacity:1;background-color:rgb(55 65 81 / var(--tw-bg-opacity));}.hover\\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity));}.focus\\:bg-gray-700:focus{--tw-bg-opacity:1;background-color:rgb(55 65 81 / var(--tw-bg-opacity));}.focus\\:text-white:focus{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity));}.focus\\:outline-none:focus{outline:2px solid transparent;outline-offset:2px;}@media (min-width: 640px){.sm\\:px-6{padding-left:1.5rem;padding-right:1.5rem;}.sm\\:px-3{padding-left:0.75rem;padding-right:0.75rem;}}@media (min-width: 768px){.md\\:ml-6{margin-left:1.5rem;}.md\\:block{display:block;}.md\\:hidden{display:none;}}@media (min-width: 1024px){.lg\\:px-8{padding-left:2rem;padding-right:2rem;}}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {};
 module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 39 */
+/* 33 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_default_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(22);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_default_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_default_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_default_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_default_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Menu_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(18);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Menu_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Menu_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Menu_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_3_oneOf_1_0_node_modules_nuxt_postcss8_node_modules_css_loader_dist_cjs_js_ref_3_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_ref_3_oneOf_1_2_node_modules_nuxt_components_dist_loader_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Menu_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
-/* 40 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Imports
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(9);
 var ___CSS_LOADER_EXPORT___ = ___CSS_LOADER_API_IMPORT___(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.i, "a.nuxt-link-exact-active{--tw-text-opacity:1;color:rgb(101 163 13 / var(--tw-text-opacity));-webkit-text-decoration-line:underline;text-decoration-line:underline;text-underline-offset:4px}", ""]);
+___CSS_LOADER_EXPORT___.push([module.i, ".menu-item{margin-top:0.25rem;margin-right:0.5rem;display:block;border-radius:0.375rem;padding-left:0.75rem;padding-right:0.75rem;padding-top:0.5rem;padding-bottom:0.5rem;font-size:1rem;line-height:1.5rem;font-weight:500;--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity))}.menu-item:hover{--tw-bg-opacity:1;background-color:rgb(55 65 81 / var(--tw-bg-opacity));--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.menu-item:focus{--tw-bg-opacity:1;background-color:rgb(55 65 81 / var(--tw-bg-opacity));--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity));outline:2px solid transparent;outline-offset:2px}.nuxt-link-exact-active{--tw-bg-opacity:1;background-color:rgb(55 65 81 / var(--tw-bg-opacity));--tw-text-opacity:1;color:rgb(241 245 249 / var(--tw-text-opacity))}", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {};
 module.exports = ___CSS_LOADER_EXPORT___;
 
 
 /***/ }),
-/* 41 */
-/***/ (function(module, exports) {
+/* 35 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "state", function() { return state; });
+const state = () => ({
+  sitename: 'Flammbodrum - '
+});
 
 /***/ }),
-/* 42 */
-/***/ (function(module, exports) {
-
-module.exports = require("core-js/modules/es.typed-array.set.js");
-
-/***/ }),
-/* 43 */
+/* 36 */
 /***/ (function(module, exports) {
 
 module.exports = require("js-cookie");
 
 /***/ }),
-/* 44 */
+/* 37 */
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/modules/esnext.map.delete-all.js");
 
 /***/ }),
-/* 45 */
+/* 38 */
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/modules/esnext.map.every.js");
 
 /***/ }),
-/* 46 */
+/* 39 */
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/modules/esnext.map.filter.js");
 
 /***/ }),
-/* 47 */
+/* 40 */
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/modules/esnext.map.find.js");
 
 /***/ }),
-/* 48 */
+/* 41 */
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/modules/esnext.map.find-key.js");
 
 /***/ }),
-/* 49 */
+/* 42 */
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/modules/esnext.map.includes.js");
 
 /***/ }),
-/* 50 */
+/* 43 */
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/modules/esnext.map.key-of.js");
 
 /***/ }),
-/* 51 */
+/* 44 */
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/modules/esnext.map.map-keys.js");
 
 /***/ }),
-/* 52 */
+/* 45 */
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/modules/esnext.map.map-values.js");
 
 /***/ }),
-/* 53 */
+/* 46 */
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/modules/esnext.map.merge.js");
 
 /***/ }),
-/* 54 */
+/* 47 */
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/modules/esnext.map.reduce.js");
 
 /***/ }),
-/* 55 */
+/* 48 */
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/modules/esnext.map.some.js");
 
 /***/ }),
-/* 56 */
+/* 49 */
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/modules/esnext.map.update.js");
 
 /***/ }),
-/* 57 */
+/* 50 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2055,7 +1958,7 @@ __webpack_require__.r(__webpack_exports__);
 // NAMESPACE OBJECT: ./.nuxt/components/index.js
 var components_namespaceObject = {};
 __webpack_require__.r(components_namespaceObject);
-__webpack_require__.d(components_namespaceObject, "Mountains", function() { return Mountains; });
+__webpack_require__.d(components_namespaceObject, "Menu", function() { return Menu; });
 
 // EXTERNAL MODULE: external "vue"
 var external_vue_ = __webpack_require__(1);
@@ -2065,7 +1968,7 @@ var external_vue_default = /*#__PURE__*/__webpack_require__.n(external_vue_);
 var external_ufo_ = __webpack_require__(2);
 
 // EXTERNAL MODULE: external "node-fetch"
-var external_node_fetch_ = __webpack_require__(4);
+var external_node_fetch_ = __webpack_require__(20);
 var external_node_fetch_default = /*#__PURE__*/__webpack_require__.n(external_node_fetch_);
 
 // CONCATENATED MODULE: ./.nuxt/middleware.js
@@ -2753,15 +2656,15 @@ var external_vue_meta_ = __webpack_require__(7);
 var external_vue_meta_default = /*#__PURE__*/__webpack_require__.n(external_vue_meta_);
 
 // EXTERNAL MODULE: external "vue-client-only"
-var external_vue_client_only_ = __webpack_require__(15);
+var external_vue_client_only_ = __webpack_require__(12);
 var external_vue_client_only_default = /*#__PURE__*/__webpack_require__.n(external_vue_client_only_);
 
 // EXTERNAL MODULE: external "vue-no-ssr"
-var external_vue_no_ssr_ = __webpack_require__(12);
+var external_vue_no_ssr_ = __webpack_require__(11);
 var external_vue_no_ssr_default = /*#__PURE__*/__webpack_require__.n(external_vue_no_ssr_);
 
 // EXTERNAL MODULE: external "vue-router"
-var external_vue_router_ = __webpack_require__(16);
+var external_vue_router_ = __webpack_require__(13);
 var external_vue_router_default = /*#__PURE__*/__webpack_require__.n(external_vue_router_);
 
 // CONCATENATED MODULE: ./.nuxt/router.scrollBehavior.js
@@ -2841,11 +2744,9 @@ function shouldScrollToTop(route) {
 
 
 
-const _712a6362 = () => interopDefault(__webpack_require__.e(/* import() | pages/about */ 2).then(__webpack_require__.bind(null, 66)));
+const _62e89e0a = () => interopDefault(__webpack_require__.e(/* import() | pages/about */ 3).then(__webpack_require__.bind(null, 64)));
 
-const _de3b83b2 = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 3).then(__webpack_require__.bind(null, 67)));
-
-const _730abd54 = () => interopDefault(__webpack_require__.e(/* import() | pages/mountains/_slug */ 4).then(__webpack_require__.bind(null, 68)));
+const _2378e880 = () => interopDefault(__webpack_require__.e(/* import() | pages/index */ 4).then(__webpack_require__.bind(null, 65)));
 
 const emptyFn = () => {};
 
@@ -2858,28 +2759,28 @@ const routerOptions = {
   scrollBehavior: router_scrollBehavior,
   routes: [{
     path: "/about",
-    component: _712a6362,
-    name: "about___en"
+    component: _62e89e0a,
+    name: "about"
+  }, {
+    path: "/en",
+    component: _2378e880,
+    name: "index___en"
   }, {
     path: "/tr",
-    component: _de3b83b2,
+    component: _2378e880,
     name: "index___tr"
   }, {
-    path: "/tr/hakkinda",
-    component: _712a6362,
+    path: "/en/about-us",
+    component: _62e89e0a,
+    name: "about___en"
+  }, {
+    path: "/tr/hakkimizda",
+    component: _62e89e0a,
     name: "about___tr"
   }, {
-    path: "/tr/mountains/:slug?",
-    component: _730abd54,
-    name: "mountains-slug___tr"
-  }, {
-    path: "/mountains/:slug?",
-    component: _730abd54,
-    name: "mountains-slug___en"
-  }, {
     path: "/",
-    component: _de3b83b2,
-    name: "index___en"
+    component: _2378e880,
+    name: "index"
   }],
   fallback: false
 };
@@ -3054,7 +2955,7 @@ var staticRenderFns = []
 // CONCATENATED MODULE: ./.nuxt/components/nuxt-error.vue?vue&type=script&lang=js&
  /* harmony default export */ var components_nuxt_errorvue_type_script_lang_js_ = (nuxt_errorvue_type_script_lang_js_); 
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
-var componentNormalizer = __webpack_require__(5);
+var componentNormalizer = __webpack_require__(4);
 
 // CONCATENATED MODULE: ./.nuxt/components/nuxt-error.vue
 
@@ -3062,7 +2963,7 @@ var componentNormalizer = __webpack_require__(5);
 
 function injectStyles (context) {
   
-  var style0 = __webpack_require__(33)
+  var style0 = __webpack_require__(27)
 if (style0.__inject__) style0.__inject__(context)
 
 }
@@ -3076,7 +2977,7 @@ var nuxt_error_component = Object(componentNormalizer["a" /* default */])(
   false,
   injectStyles,
   null,
-  "71d15dc0"
+  "4d00809d"
   
 )
 
@@ -3366,7 +3267,7 @@ var nuxt_loading_render, nuxt_loading_staticRenderFns
 
 function nuxt_loading_injectStyles (context) {
   
-  var style0 = __webpack_require__(35)
+  var style0 = __webpack_require__(29)
 if (style0.__inject__) style0.__inject__(context)
 
 }
@@ -3380,100 +3281,44 @@ var nuxt_loading_component = Object(componentNormalizer["a" /* default */])(
   false,
   nuxt_loading_injectStyles,
   null,
-  "5642f358"
+  "f58c6ade"
   
 )
 
 /* harmony default export */ var nuxt_loading = (nuxt_loading_component.exports);
 // EXTERNAL MODULE: ./assets/css/main.css
-var main = __webpack_require__(37);
+var main = __webpack_require__(31);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./layouts/default.vue?vue&type=template&id=213c98a2&
-var defaultvue_type_template_id_213c98a2_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"container px-4 mx-auto mt-20 md:px-0"},[_vm._ssrNode("<div class=\"grid grid-cols-4 pb-2 border-b-2 border-slate-800\">","</div>",[_vm._ssrNode("<div class=\"col-span-3\">","</div>",[_c('nuxt-link',{staticClass:"mr-5",attrs:{"to":_vm.localePath('index')}},[_vm._v(_vm._s(_vm.$t("nav.home")))]),_vm._ssrNode(" "),_c('nuxt-link',{staticClass:"mr-5",attrs:{"to":_vm.localePath('about')}},[_vm._v(_vm._s(_vm.$t("nav.about")))]),_vm._ssrNode(" "),_c('dropdown-menu',{attrs:{"overlay":false,"direction":"center"}},[_c('button',{attrs:{"slot":"trigger"},slot:"trigger"},[_vm._v("Open Dropdown")]),_vm._v(" "),_c('header',{attrs:{"slot":"header"},slot:"header"},[_vm._v("Dropdown Header")]),_vm._v(" "),_c('ul',{attrs:{"slot":"body"},slot:"body"},_vm._l((6),function(i){return _c('li',{key:i},[_c('a',{attrs:{"href":""}},[_vm._v("Item "+_vm._s(i))])])}),0),_vm._v(" "),_c('footer',{attrs:{"slot":"footer"},slot:"footer"},[_vm._v("Dropdown Footer")])])],2),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"col-span-1 justify-self-end\">","</div>",[_vm._l((_vm.availableLocales),function(locale){return _c('nuxt-link',{key:locale.code,staticClass:"mr-5",attrs:{"to":_vm.switchLocalePath(locale.code)}},[_vm._v(_vm._s(locale.name))])}),_vm._ssrNode(" "),_c('nuxt-link',{attrs:{"to":_vm.switchLocalePath('en')}},[_vm._v("English")]),_vm._ssrNode(" "),_c('nuxt-link',{attrs:{"to":_vm.switchLocalePath('tr')}},[_vm._v("Türkçe")])],2)],2),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"mt-10\">","</div>",[_c('Nuxt')],1)],2)}
-var defaultvue_type_template_id_213c98a2_staticRenderFns = []
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./layouts/default.vue?vue&type=template&id=a5fdfe4c&
+var defaultvue_type_template_id_a5fdfe4c_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"flex flex-col h-screen bg-slate-100"},[_vm._ssrNode("<div>","</div>",[_c('Menu')],1),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"z-0 p-4 bg-slate-200 grow\">","</div>",[_c('Nuxt')],1)],2)}
+var defaultvue_type_template_id_a5fdfe4c_staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./layouts/default.vue?vue&type=template&id=213c98a2&
+// CONCATENATED MODULE: ./layouts/default.vue?vue&type=template&id=a5fdfe4c&
 
-// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./layouts/default.vue?vue&type=script&lang=js&
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-/* harmony default export */ var defaultvue_type_script_lang_js_ = ({
-  computed: {
-    availableLocales() {
-      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
-    }
-
-  },
-
-  data() {
-    return {
-      isOpenMyDropdown: false
-    };
-  }
-
-});
-// CONCATENATED MODULE: ./layouts/default.vue?vue&type=script&lang=js&
- /* harmony default export */ var layouts_defaultvue_type_script_lang_js_ = (defaultvue_type_script_lang_js_); 
 // CONCATENATED MODULE: ./layouts/default.vue
 
+var script = {}
 
-
-function default_injectStyles (context) {
-  
-  var style0 = __webpack_require__(39)
-if (style0.__inject__) style0.__inject__(context)
-
-}
 
 /* normalize component */
 
 var default_component = Object(componentNormalizer["a" /* default */])(
-  layouts_defaultvue_type_script_lang_js_,
-  defaultvue_type_template_id_213c98a2_render,
-  defaultvue_type_template_id_213c98a2_staticRenderFns,
+  script,
+  defaultvue_type_template_id_a5fdfe4c_render,
+  defaultvue_type_template_id_a5fdfe4c_staticRenderFns,
   false,
-  default_injectStyles,
   null,
-  "9c06f13c"
+  null,
+  "027b4a5f"
   
 )
 
 /* harmony default export */ var layouts_default = (default_component.exports);
+
+/* nuxt-component-imports */
+installComponents(default_component, {Menu: __webpack_require__(51).default})
+
 // CONCATENATED MODULE: ./.nuxt/App.js
 
 
@@ -3732,7 +3577,7 @@ external_vue_default.a.use(external_vuex_default.a);
 let store_store = {};
 
 (function updateModules() {
-  store_store = normalizeRoot(__webpack_require__(41), 'store/index.js'); // If store is an exported method = classic mode (deprecated)
+  store_store = normalizeRoot(__webpack_require__(35), 'store/index.js'); // If store is an exported method = classic mode (deprecated)
   // Enforce store modules
 
   store_store.modules = store_store.modules || {}; // If the environment supports hot reloading...
@@ -3773,7 +3618,7 @@ function normalizeModule(moduleData, filePath) {
   return moduleData;
 }
 // CONCATENATED MODULE: ./.nuxt/components/index.js
-const Mountains = () => __webpack_require__.e(/* import() | components/mountains */ 1).then(__webpack_require__.bind(null, 63)).then(c => wrapFunctional(c.default || c)); // nuxt/nuxt.js#8607
+const Menu = () => Promise.resolve(/* import() */).then(__webpack_require__.bind(null, 51)).then(c => wrapFunctional(c.default || c)); // nuxt/nuxt.js#8607
 
 function wrapFunctional(options) {
   if (!options || !options.functional) {
@@ -3812,252 +3657,8 @@ for (const name in components_namespaceObject) {
   external_vue_default.a.component(name, components_namespaceObject[name]);
   external_vue_default.a.component('Lazy' + name, components_namespaceObject[name]);
 }
-// EXTERNAL MODULE: external "abort-controller"
-var external_abort_controller_ = __webpack_require__(23);
-
-// EXTERNAL MODULE: external "web-streams-polyfill/ponyfill/es2018"
-var es2018_ = __webpack_require__(24);
-
-// CONCATENATED MODULE: ./.nuxt/http.server.js
-
-
-
-const TEN_MEGABYTES = 1000 * 1000 * 10;
-
-if (!global.fetch) {
-  global.fetch = (url, options) => external_node_fetch_default()(url, {
-    highWaterMark: TEN_MEGABYTES,
-    ...options
-  });
-}
-
-if (!global.Headers) {
-  global.Headers = external_node_fetch_default.a.Headers;
-}
-
-if (!global.Request) {
-  global.Request = external_node_fetch_default.a.Request;
-}
-
-if (!global.Response) {
-  global.Response = external_node_fetch_default.a.Response;
-}
-
-if (!global.AbortController) {
-  global.AbortController = external_abort_controller_["AbortController"];
-}
-
-if (!global.ReadableStream) {
-  try {
-    global.ReadableStream = es2018_["ReadableStream"];
-  } catch (_) {}
-}
-// EXTERNAL MODULE: external "defu"
-var external_defu_ = __webpack_require__(11);
-var external_defu_default = /*#__PURE__*/__webpack_require__.n(external_defu_);
-
-// EXTERNAL MODULE: external "destr"
-var external_destr_ = __webpack_require__(17);
-var external_destr_default = /*#__PURE__*/__webpack_require__.n(external_destr_);
-
-// EXTERNAL MODULE: ./node_modules/ky/index.js
-var node_modules_ky = __webpack_require__(25);
-
-// CONCATENATED MODULE: ./.nuxt/http.js
-
-
-
-
-class http_HTTP {
-  constructor(defaults, ky = node_modules_ky["a" /* default */]) {
-    this._defaults = {
-      hooks: {},
-      ...defaults
-    };
-    this._ky = ky;
-  }
-
-  getBaseURL() {
-    return this._defaults.prefixUrl;
-  }
-
-  setBaseURL(baseURL) {
-    this._defaults.prefixUrl = baseURL;
-  }
-
-  setHeader(name, value) {
-    if (!value) {
-      delete this._defaults.headers[name];
-    } else {
-      this._defaults.headers[name] = value;
-    }
-  }
-
-  setToken(token, type) {
-    const value = !token ? null : (type ? type + ' ' : '') + token;
-    this.setHeader('Authorization', value);
-  }
-
-  _hook(name, fn) {
-    if (!this._defaults.hooks[name]) {
-      this._defaults.hooks[name] = [];
-    }
-
-    this._defaults.hooks[name].push(fn);
-  }
-
-  onRequest(fn) {
-    this._hook('beforeRequest', fn);
-  }
-
-  onRetry(fn) {
-    this._hook('beforeRetry', fn);
-  }
-
-  onResponse(fn) {
-    this._hook('afterResponse', fn);
-  }
-
-  onError(fn) {
-    this._hook('onError', fn);
-  }
-
-  create(options) {
-    const {
-      retry,
-      timeout,
-      prefixUrl,
-      headers
-    } = this._defaults;
-    return createHttpInstance(external_defu_default()(options, {
-      retry,
-      timeout,
-      prefixUrl,
-      headers
-    }));
-  }
-
-}
-
-for (let method of ['get', 'head', 'delete', 'post', 'put', 'patch']) {
-  const hasBody = ['post', 'put', 'patch'].includes(method);
-
-  http_HTTP.prototype[method] = async function (url, arg1, arg2) {
-    let options;
-
-    if (!hasBody) {
-      options = arg1;
-    } else {
-      options = arg2 || {};
-
-      if (arg1 !== undefined) {
-        if (arg1.constructor === Object || Array.isArray(arg1)) {
-          options.json = arg1;
-        } else {
-          options.body = arg1;
-        }
-      }
-    }
-
-    const _options = { ...this._defaults,
-      ...options
-    };
-
-    if (/^https?/.test(url)) {
-      delete _options.prefixUrl;
-    } else if (_options.prefixUrl && typeof url === 'string' && url.startsWith('/')) {
-      // Prevents `ky` from throwing "`input` must not begin with a slash when using `prefixUrl`"
-      url = url.substr(1);
-    }
-
-    try {
-      const response = await this._ky[method](url, _options);
-      return response;
-    } catch (error) {
-      // Try to fill error with useful data
-      if (error.response) {
-        error.statusCode = error.response.status;
-
-        try {
-          const text = await error.response.text();
-
-          error.response.text = () => Promise.resolve(text);
-
-          const json = external_destr_default()(text);
-
-          error.response.json = () => Promise.resolve(json);
-
-          error.response.data = json;
-        } catch (_) {}
-      } // Call onError hook
-
-
-      if (_options.hooks.onError) {
-        for (const fn of _options.hooks.onError) {
-          const res = fn(error);
-
-          if (res !== undefined) {
-            return res;
-          }
-        }
-      } // Throw error
-
-
-      throw error;
-    }
-  };
-
-  http_HTTP.prototype['$' + method] = function (url, arg1, arg2) {
-    return this[method](url, arg1, arg2).then(response => response && response.text ? response.text() : response).then(body => external_destr_default()(body));
-  };
-}
-
-const createHttpInstance = options => {
-  // Create new HTTP instance
-  const http = new http_HTTP(options); // Setup interceptors
-
-  return http;
-};
-
-/* harmony default export */ var http = ((ctx, inject) => {
-  // runtimeConfig
-  const runtimeConfig = ctx.$config && ctx.$config.http || {}; // prefixUrl
-
-  const prefixUrl =  false ? undefined : runtimeConfig.baseURL || process.env._HTTP_BASE_URL_ || 'http://localhost:3000/';
-  const headers = {}; // Defaults
-
-  const defaults = {
-    retry: 0,
-    timeout:  true ? false : undefined,
-    prefixUrl,
-    headers
-  }; // Proxy SSR request headers headers
-
-  if ( true && ctx.req && ctx.req.headers) {
-    const reqHeaders = { ...ctx.req.headers
-    };
-
-    for (let h of ["accept", "host", "cf-ray", "cf-connecting-ip", "content-length", "content-md5", "content-type"]) {
-      delete reqHeaders[h];
-    }
-
-    defaults.headers = { ...reqHeaders,
-      ...defaults.headers
-    };
-  }
-
-  if (true) {
-    // Don't accept brotli encoding because Node can't parse it
-    defaults.headers['accept-encoding'] = 'gzip, deflate';
-  }
-
-  const http = createHttpInstance(defaults); // Inject http to the context as $http
-
-  ctx.$http = http;
-  inject('http', http);
-});
 // EXTERNAL MODULE: ./node_modules/is-https/dist/index.js
-var dist = __webpack_require__(28);
+var dist = __webpack_require__(21);
 var dist_default = /*#__PURE__*/__webpack_require__.n(dist);
 
 // EXTERNAL MODULE: ./.nuxt/nuxt-i18n/options.js
@@ -4066,550 +3667,8 @@ var nuxt_i18n_options = __webpack_require__(0);
 // EXTERNAL MODULE: ./.nuxt/nuxt-i18n/utils-common.js
 var utils_common = __webpack_require__(3);
 
-// CONCATENATED MODULE: ./node_modules/ufo/dist/index.mjs
-const n = /[^\0-\x7E]/;
-const t = /[\x2E\u3002\uFF0E\uFF61]/g;
-const o = {
-  overflow: "Overflow Error",
-  "not-basic": "Illegal Input",
-  "invalid-input": "Invalid Input"
-};
-const e = Math.floor;
-const r = String.fromCharCode;
-
-function s(n2) {
-  throw new RangeError(o[n2]);
-}
-
-const c = function (n2, t2) {
-  return n2 + 22 + 75 * (n2 < 26) - ((t2 != 0) << 5);
-};
-
-const u = function (n2, t2, o2) {
-  let r2 = 0;
-
-  for (n2 = o2 ? e(n2 / 700) : n2 >> 1, n2 += e(n2 / t2); n2 > 455; r2 += 36) {
-    n2 = e(n2 / 35);
-  }
-
-  return e(r2 + 36 * n2 / (n2 + 38));
-};
-
-function toASCII(o2) {
-  return function (n2, o3) {
-    const e2 = n2.split("@");
-    let r2 = "";
-    e2.length > 1 && (r2 = e2[0] + "@", n2 = e2[1]);
-
-    const s2 = function (n3, t2) {
-      const o4 = [];
-      let e3 = n3.length;
-
-      for (; e3--;) {
-        o4[e3] = t2(n3[e3]);
-      }
-
-      return o4;
-    }((n2 = n2.replace(t, ".")).split("."), o3).join(".");
-
-    return r2 + s2;
-  }(o2, function (t2) {
-    return n.test(t2) ? "xn--" + function (n2) {
-      const t3 = [];
-
-      const o3 = (n2 = function (n3) {
-        const t4 = [];
-        let o4 = 0;
-        const e2 = n3.length;
-
-        for (; o4 < e2;) {
-          const r2 = n3.charCodeAt(o4++);
-
-          if (r2 >= 55296 && r2 <= 56319 && o4 < e2) {
-            const e3 = n3.charCodeAt(o4++);
-            (64512 & e3) == 56320 ? t4.push(((1023 & r2) << 10) + (1023 & e3) + 65536) : (t4.push(r2), o4--);
-          } else {
-            t4.push(r2);
-          }
-        }
-
-        return t4;
-      }(n2)).length;
-
-      let f = 128;
-      let i = 0;
-      let l = 72;
-
-      for (const o4 of n2) {
-        o4 < 128 && t3.push(r(o4));
-      }
-
-      const h = t3.length;
-      let p = h;
-
-      for (h && t3.push("-"); p < o3;) {
-        let o4 = 2147483647;
-
-        for (const t4 of n2) {
-          t4 >= f && t4 < o4 && (o4 = t4);
-        }
-
-        const a = p + 1;
-        o4 - f > e((2147483647 - i) / a) && s("overflow"), i += (o4 - f) * a, f = o4;
-
-        for (const o5 of n2) {
-          if (o5 < f && ++i > 2147483647 && s("overflow"), o5 == f) {
-            let n3 = i;
-
-            for (let o6 = 36;; o6 += 36) {
-              const s2 = o6 <= l ? 1 : o6 >= l + 26 ? 26 : o6 - l;
-
-              if (n3 < s2) {
-                break;
-              }
-
-              const u2 = n3 - s2;
-              const f2 = 36 - s2;
-              t3.push(r(c(s2 + u2 % f2, 0))), n3 = e(u2 / f2);
-            }
-
-            t3.push(r(c(n3, 0))), l = u(i, a, p == h), i = 0, ++p;
-          }
-        }
-
-        ++i, ++f;
-      }
-
-      return t3.join("");
-    }(t2) : t2;
-  });
-}
-
-const HASH_RE = /#/g;
-const AMPERSAND_RE = /&/g;
-const SLASH_RE = /\//g;
-const EQUAL_RE = /=/g;
-const IM_RE = /\?/g;
-const PLUS_RE = /\+/g;
-const ENC_BRACKET_OPEN_RE = /%5B/gi;
-const ENC_BRACKET_CLOSE_RE = /%5D/gi;
-const ENC_CARET_RE = /%5E/gi;
-const ENC_BACKTICK_RE = /%60/gi;
-const ENC_CURLY_OPEN_RE = /%7B/gi;
-const ENC_PIPE_RE = /%7C/gi;
-const ENC_CURLY_CLOSE_RE = /%7D/gi;
-const ENC_SPACE_RE = /%20/gi;
-const ENC_SLASH_RE = /%2F/gi;
-const ENC_ENC_SLASH_RE = /%252F/gi;
-
-function encode(text) {
-  return encodeURI("" + text).replace(ENC_PIPE_RE, "|").replace(ENC_BRACKET_OPEN_RE, "[").replace(ENC_BRACKET_CLOSE_RE, "]");
-}
-
-function encodeHash(text) {
-  return encode(text).replace(ENC_CURLY_OPEN_RE, "{").replace(ENC_CURLY_CLOSE_RE, "}").replace(ENC_CARET_RE, "^");
-}
-
-function encodeQueryValue(text) {
-  return encode(text).replace(PLUS_RE, "%2B").replace(ENC_SPACE_RE, "+").replace(HASH_RE, "%23").replace(AMPERSAND_RE, "%26").replace(ENC_BACKTICK_RE, "`").replace(ENC_CURLY_OPEN_RE, "{").replace(ENC_CURLY_CLOSE_RE, "}").replace(ENC_CARET_RE, "^");
-}
-
-function encodeQueryKey(text) {
-  return encodeQueryValue(text).replace(EQUAL_RE, "%3D");
-}
-
-function encodePath(text) {
-  return encode(text).replace(HASH_RE, "%23").replace(IM_RE, "%3F").replace(ENC_ENC_SLASH_RE, "%2F").replace(AMPERSAND_RE, "%26").replace(PLUS_RE, "%2B");
-}
-
-function encodeParam(text) {
-  return encodePath(text).replace(SLASH_RE, "%2F");
-}
-
-function decode(text = "") {
-  try {
-    return decodeURIComponent("" + text);
-  } catch (_err) {
-    return "" + text;
-  }
-}
-
-function decodePath(text) {
-  return decode(text.replace(ENC_SLASH_RE, "%252F"));
-}
-
-function decodeQueryValue(text) {
-  return decode(text.replace(PLUS_RE, " "));
-}
-
-function encodeHost(name = "") {
-  return toASCII(name);
-}
-
-function parseQuery(paramsStr = "") {
-  const obj = {};
-
-  if (paramsStr[0] === "?") {
-    paramsStr = paramsStr.substr(1);
-  }
-
-  for (const param of paramsStr.split("&")) {
-    const s = param.match(/([^=]+)=?(.*)/) || [];
-
-    if (s.length < 2) {
-      continue;
-    }
-
-    const key = decode(s[1]);
-
-    if (key === "__proto__" || key === "constructor") {
-      continue;
-    }
-
-    const value = decodeQueryValue(s[2] || "");
-
-    if (obj[key]) {
-      if (Array.isArray(obj[key])) {
-        obj[key].push(value);
-      } else {
-        obj[key] = [obj[key], value];
-      }
-    } else {
-      obj[key] = value;
-    }
-  }
-
-  return obj;
-}
-
-function encodeQueryItem(key, val) {
-  if (!val) {
-    return encodeQueryKey(key);
-  }
-
-  if (Array.isArray(val)) {
-    return val.map(_val => `${encodeQueryKey(key)}=${encodeQueryValue(_val)}`).join("&");
-  }
-
-  return `${encodeQueryKey(key)}=${encodeQueryValue(val)}`;
-}
-
-function stringifyQuery(query) {
-  return Object.keys(query).map(k => encodeQueryItem(k, query[k])).join("&");
-}
-
-class $URL {
-  constructor(input = "") {
-    this.query = {};
-
-    if (typeof input !== "string") {
-      throw new TypeError(`URL input should be string received ${typeof input} (${input})`);
-    }
-
-    const parsed = parseURL(input);
-    this.protocol = decode(parsed.protocol);
-    this.host = decode(parsed.host);
-    this.auth = decode(parsed.auth);
-    this.pathname = decodePath(parsed.pathname);
-    this.query = parseQuery(parsed.search);
-    this.hash = decode(parsed.hash);
-  }
-
-  get hostname() {
-    return parseHost(this.host).hostname;
-  }
-
-  get port() {
-    return parseHost(this.host).port || "";
-  }
-
-  get username() {
-    return parseAuth(this.auth).username;
-  }
-
-  get password() {
-    return parseAuth(this.auth).password || "";
-  }
-
-  get hasProtocol() {
-    return this.protocol.length;
-  }
-
-  get isAbsolute() {
-    return this.hasProtocol || this.pathname[0] === "/";
-  }
-
-  get search() {
-    const q = stringifyQuery(this.query);
-    return q.length ? "?" + q : "";
-  }
-
-  get searchParams() {
-    const p = new URLSearchParams();
-
-    for (const name in this.query) {
-      const value = this.query[name];
-
-      if (Array.isArray(value)) {
-        value.forEach(v => p.append(name, v));
-      } else {
-        p.append(name, value || "");
-      }
-    }
-
-    return p;
-  }
-
-  get origin() {
-    return (this.protocol ? this.protocol + "//" : "") + encodeHost(this.host);
-  }
-
-  get fullpath() {
-    return encodePath(this.pathname) + this.search + encodeHash(this.hash);
-  }
-
-  get encodedAuth() {
-    if (!this.auth) {
-      return "";
-    }
-
-    const {
-      username,
-      password
-    } = parseAuth(this.auth);
-    return encodeURIComponent(username) + (password ? ":" + encodeURIComponent(password) : "");
-  }
-
-  get href() {
-    const auth = this.encodedAuth;
-    const originWithAuth = (this.protocol ? this.protocol + "//" : "") + (auth ? auth + "@" : "") + encodeHost(this.host);
-    return this.hasProtocol && this.isAbsolute ? originWithAuth + this.fullpath : this.fullpath;
-  }
-
-  append(url) {
-    if (url.hasProtocol) {
-      throw new Error("Cannot append a URL with protocol");
-    }
-
-    Object.assign(this.query, url.query);
-
-    if (url.pathname) {
-      this.pathname = withTrailingSlash(this.pathname) + withoutLeadingSlash(url.pathname);
-    }
-
-    if (url.hash) {
-      this.hash = url.hash;
-    }
-  }
-
-  toJSON() {
-    return this.href;
-  }
-
-  toString() {
-    return this.href;
-  }
-
-}
-
-function isRelative(inputStr) {
-  return ["./", "../"].some(str => inputStr.startsWith(str));
-}
-
-function hasProtocol(inputStr, acceptProtocolRelative = false) {
-  return /^\w+:\/\/.+/.test(inputStr) || acceptProtocolRelative && /^\/\/[^/]+/.test(inputStr);
-}
-
-const TRAILING_SLASH_RE = /\/$|\/\?/;
-
-function hasTrailingSlash(input = "", queryParams = false) {
-  if (!queryParams) {
-    return input.endsWith("/");
-  }
-
-  return TRAILING_SLASH_RE.test(input);
-}
-
-function withoutTrailingSlash(input = "", queryParams = false) {
-  if (!queryParams) {
-    return (hasTrailingSlash(input) ? input.slice(0, -1) : input) || "/";
-  }
-
-  if (!hasTrailingSlash(input, true)) {
-    return input || "/";
-  }
-
-  const [s0, ...s] = input.split("?");
-  return (s0.slice(0, -1) || "/") + (s.length ? `?${s.join("?")}` : "");
-}
-
-function withTrailingSlash(input = "", queryParams = false) {
-  if (!queryParams) {
-    return input.endsWith("/") ? input : input + "/";
-  }
-
-  if (hasTrailingSlash(input, true)) {
-    return input || "/";
-  }
-
-  const [s0, ...s] = input.split("?");
-  return s0 + "/" + (s.length ? `?${s.join("?")}` : "");
-}
-
-function hasLeadingSlash(input = "") {
-  return input.startsWith("/");
-}
-
-function withoutLeadingSlash(input = "") {
-  return (hasLeadingSlash(input) ? input.substr(1) : input) || "/";
-}
-
-function withLeadingSlash(input = "") {
-  return hasLeadingSlash(input) ? input : "/" + input;
-}
-
-function cleanDoubleSlashes(input = "") {
-  return input.split("://").map(str => str.replace(/\/{2,}/g, "/")).join("://");
-}
-
-function withBase(input, base) {
-  if (isEmptyURL(base)) {
-    return input;
-  }
-
-  const _base = withoutTrailingSlash(base);
-
-  if (input.startsWith(_base)) {
-    return input;
-  }
-
-  return joinURL(_base, input);
-}
-
-function withoutBase(input, base) {
-  if (isEmptyURL(base)) {
-    return input;
-  }
-
-  const _base = withoutTrailingSlash(base);
-
-  if (input.startsWith(_base)) {
-    return input.substr(_base.length) || "/";
-  }
-
-  return input;
-}
-
-function withQuery(input, query) {
-  const parsed = parseURL(input);
-  const mergedQuery = { ...parseQuery(parsed.search),
-    ...query
-  };
-  parsed.search = stringifyQuery(mergedQuery);
-  return stringifyParsedURL(parsed);
-}
-
-function getQuery(input) {
-  return parseQuery(parseURL(input).search);
-}
-
-function isEmptyURL(url) {
-  return !url || url === "/";
-}
-
-function isNonEmptyURL(url) {
-  return url && url !== "/";
-}
-
-function joinURL(base, ...input) {
-  let url = base || "";
-
-  for (const i of input.filter(isNonEmptyURL)) {
-    url = url ? withTrailingSlash(url) + withoutLeadingSlash(i) : i;
-  }
-
-  return url;
-}
-
-function createURL(input) {
-  return new $URL(input);
-}
-
-function normalizeURL(input) {
-  return createURL(input).toString();
-}
-
-function resolveURL(base, ...input) {
-  const url = createURL(base);
-
-  for (const i of input.filter(isNonEmptyURL)) {
-    url.append(createURL(i));
-  }
-
-  return url.toString();
-}
-
-function dist_isSamePath(p1, p2) {
-  return decode(withoutTrailingSlash(p1)) === decode(withoutTrailingSlash(p2));
-}
-
-function parseURL(input = "", defaultProto) {
-  if (!hasProtocol(input, true)) {
-    return defaultProto ? parseURL(defaultProto + input) : parsePath(input);
-  }
-
-  const [protocol = "", auth, hostAndPath] = (input.replace(/\\/g, "/").match(/([^:/]+:)?\/\/([^/@]+@)?(.*)/) || []).splice(1);
-  const [host = "", path = ""] = (hostAndPath.match(/([^/?]*)(.*)?/) || []).splice(1);
-  const {
-    pathname,
-    search,
-    hash
-  } = parsePath(path);
-  return {
-    protocol,
-    auth: auth ? auth.substr(0, auth.length - 1) : "",
-    host,
-    pathname,
-    search,
-    hash
-  };
-}
-
-function parsePath(input = "") {
-  const [pathname = "", search = "", hash = ""] = (input.match(/([^#?]*)(\?[^#]*)?(#.*)?/) || []).splice(1);
-  return {
-    pathname,
-    search,
-    hash
-  };
-}
-
-function parseAuth(input = "") {
-  const [username, password] = input.split(":");
-  return {
-    username: decode(username),
-    password: decode(password)
-  };
-}
-
-function parseHost(input = "") {
-  const [hostname, port] = (input.match(/([^/]*)(:0-9+)?/) || []).splice(1);
-  return {
-    hostname: decode(hostname),
-    port
-  };
-}
-
-function stringifyParsedURL(parsed) {
-  const fullpath = parsed.pathname + (parsed.search ? (parsed.search.startsWith("?") ? "" : "?") + parsed.search : "") + parsed.hash;
-
-  if (!parsed.protocol) {
-    return fullpath;
-  }
-
-  return parsed.protocol + "//" + (parsed.auth ? parsed.auth + "@" : "") + parsed.host + fullpath;
-}
-
+// EXTERNAL MODULE: ./node_modules/ufo/dist/index.cjs
+var ufo_dist = __webpack_require__(5);
 
 // CONCATENATED MODULE: ./.nuxt/nuxt-i18n/plugin.utils.js
 
@@ -4730,7 +3789,7 @@ function getDomainFromLocale(localeCode, req, {
   const lang = normalizedLocales.find(locale => locale.code === localeCode);
 
   if (lang && lang.domain) {
-    if (hasProtocol(lang.domain)) {
+    if (Object(ufo_dist["hasProtocol"])(lang.domain)) {
       return lang.domain;
     }
 
@@ -4977,7 +4036,7 @@ function resolveRoute(route, locale) {
         localizedRoute.path = `/${locale}${localizedRoute.path}`;
       }
 
-      localizedRoute.path = nuxt_i18n_options["c" /* nuxtOptions */].trailingSlash ? withTrailingSlash(localizedRoute.path, true) : withoutTrailingSlash(localizedRoute.path, true);
+      localizedRoute.path = nuxt_i18n_options["c" /* nuxtOptions */].trailingSlash ? Object(ufo_dist["withTrailingSlash"])(localizedRoute.path, true) : Object(ufo_dist["withoutTrailingSlash"])(localizedRoute.path, true);
     }
   } else {
     if (!localizedRoute.name && !localizedRoute.path) {
@@ -5180,11 +4239,11 @@ const plugin_routing_plugin = {
   }
 });
 // EXTERNAL MODULE: external "vue-i18n"
-var external_vue_i18n_ = __webpack_require__(19);
+var external_vue_i18n_ = __webpack_require__(15);
 var external_vue_i18n_default = /*#__PURE__*/__webpack_require__.n(external_vue_i18n_);
 
 // EXTERNAL MODULE: ./.nuxt/nuxt-i18n/head-meta.js
-var head_meta = __webpack_require__(29);
+var head_meta = __webpack_require__(22);
 
 // CONCATENATED MODULE: ./node_modules/klona/full/index.mjs
 function set(obj, key, val) {
@@ -5275,7 +4334,7 @@ external_vue_default.a.use(external_vue_i18n_default.a);
   const injectInNuxtState = lazy && (lazy === true || lazy.skipNuxtState !== true);
 
   if ( true && injectInNuxtState) {
-    const devalue = (await Promise.resolve(/* import() */).then(__webpack_require__.t.bind(null, 58, 7))).default;
+    const devalue = (await Promise.resolve(/* import() */).then(__webpack_require__.t.bind(null, 55, 7))).default;
     context.beforeNuxtRender(({
       nuxtState
     }) => {
@@ -5665,87 +4724,13 @@ external_vue_default.a.use(external_vue_i18n_default.a);
 
   if (false) {}
 });
-// EXTERNAL MODULE: ./.nuxt/empty.js
-var _nuxt_empty = __webpack_require__(14);
-
-// CONCATENATED MODULE: ./.nuxt/pwa/meta.utils.js
-function mergeMeta(to, from) {
-  if (typeof to === 'function') {
-    // eslint-disable-next-line no-console
-    console.warn('Cannot merge meta. Avoid using head as a function!');
-    return;
-  }
-
-  for (const key in from) {
-    const value = from[key];
-
-    if (Array.isArray(value)) {
-      to[key] = to[key] || [];
-
-      for (const item of value) {
-        // Avoid duplicates
-        if (item.hid && hasMeta(to[key], 'hid', item.hid) || item.name && hasMeta(to[key], 'name', item.name)) {
-          continue;
-        } // Add meta
-
-
-        to[key].push(item);
-      }
-    } else if (typeof value === 'object') {
-      to[key] = to[key] || {};
-
-      for (const attr in value) {
-        to[key][attr] = value[attr];
-      }
-    } else if (to[key] === undefined) {
-      to[key] = value;
-    }
-  }
-}
-
-function hasMeta(arr, key, val) {
-  return arr.find(obj => val ? obj[key] === val : obj[key]);
-}
-// EXTERNAL MODULE: ./.nuxt/pwa/meta.json
-var meta = __webpack_require__(30);
-
-// CONCATENATED MODULE: ./.nuxt/pwa/meta.plugin.js
-
-
-/* harmony default export */ var meta_plugin = (function ({
-  app
-}) {
-  mergeMeta(app.head, meta);
-});
-// CONCATENATED MODULE: ./.nuxt/pwa/icon.plugin.js
-/* harmony default export */ var icon_plugin = (async function (ctx, inject) {
-  const icons = {
-    "64x64": "/_nuxt/icons/icon_64x64.e3e9fb.png",
-    "120x120": "/_nuxt/icons/icon_120x120.e3e9fb.png",
-    "144x144": "/_nuxt/icons/icon_144x144.e3e9fb.png",
-    "152x152": "/_nuxt/icons/icon_152x152.e3e9fb.png",
-    "192x192": "/_nuxt/icons/icon_192x192.e3e9fb.png",
-    "384x384": "/_nuxt/icons/icon_384x384.e3e9fb.png",
-    "512x512": "/_nuxt/icons/icon_512x512.e3e9fb.png",
-    "ipad_1536x2048": "/_nuxt/icons/splash_ipad_1536x2048.e3e9fb.png",
-    "ipadpro9_1536x2048": "/_nuxt/icons/splash_ipadpro9_1536x2048.e3e9fb.png",
-    "ipadpro10_1668x2224": "/_nuxt/icons/splash_ipadpro10_1668x2224.e3e9fb.png",
-    "ipadpro12_2048x2732": "/_nuxt/icons/splash_ipadpro12_2048x2732.e3e9fb.png",
-    "iphonese_640x1136": "/_nuxt/icons/splash_iphonese_640x1136.e3e9fb.png",
-    "iphone6_50x1334": "/_nuxt/icons/splash_iphone6_50x1334.e3e9fb.png",
-    "iphoneplus_1080x1920": "/_nuxt/icons/splash_iphoneplus_1080x1920.e3e9fb.png",
-    "iphonex_1125x2436": "/_nuxt/icons/splash_iphonex_1125x2436.e3e9fb.png",
-    "iphonexr_828x1792": "/_nuxt/icons/splash_iphonexr_828x1792.e3e9fb.png",
-    "iphonexsmax_1242x2688": "/_nuxt/icons/splash_iphonexsmax_1242x2688.e3e9fb.png"
-  };
-
-  const getIcon = size => icons[size + 'x' + size] || '';
-
-  inject('icon', getIcon);
-});
 // EXTERNAL MODULE: external "axios"
 var external_axios_ = __webpack_require__(8);
 var external_axios_default = /*#__PURE__*/__webpack_require__.n(external_axios_);
+
+// EXTERNAL MODULE: external "defu"
+var external_defu_ = __webpack_require__(23);
+var external_defu_default = /*#__PURE__*/__webpack_require__.n(external_defu_);
 
 // CONCATENATED MODULE: ./.nuxt/axios.js
 
@@ -5947,6 +4932,15 @@ const setupProgress = axios => {
   ctx.$axios = axios;
   inject('axios', axios);
 });
+// EXTERNAL MODULE: external "vue-clickaway"
+var external_vue_clickaway_ = __webpack_require__(24);
+
+// CONCATENATED MODULE: ./plugins/clickaway.js
+
+
+external_vue_default.a.mixin({
+  mixins: [external_vue_clickaway_["mixin"]]
+});
 // CONCATENATED MODULE: ./.nuxt/index.js
 
 
@@ -5964,27 +4958,15 @@ const setupProgress = axios => {
 
  // Source: ./components/plugin.js (mode: 'all')
 
- // Source: ./http.server.js (mode: 'server')
-
- // Source: ./http.js (mode: 'all')
-
  // Source: ./nuxt-i18n/plugin.utils.js (mode: 'all')
 
  // Source: ./nuxt-i18n/plugin.routing.js (mode: 'all')
 
  // Source: ./nuxt-i18n/plugin.main.js (mode: 'all')
 
- // Source: ./workbox.js (mode: 'client')
-
- // Source: ./pwa/meta.plugin.js (mode: 'all')
-
- // Source: ./pwa/icon.plugin.js (mode: 'all')
-
  // Source: ./axios.js (mode: 'all')
 
- // Source: ../plugins/vue-js-modal (mode: 'client')
-
- // Source: ../plugins/v-dropdown-menu (mode: 'client')
+ // Source: ../plugins/clickaway (mode: 'all')
 // Component: <ClientOnly>
 
 external_vue_default.a.component(external_vue_client_only_default.a.name, external_vue_client_only_default.a); // TODO: Remove in Nuxt 3: <NoSsr>
@@ -6050,22 +5032,12 @@ async function createApp(ssrContext, config = {}) {
   // making them available everywhere as `this.$router` and `this.$store`.
 
   const app = {
-    head: {
-      "title": "Nuxt Boilerpate",
-      "titleTemplate": "Nuxt Boilerpate | %s",
-      "meta": [{
-        "charset": "utf-8"
-      }, {
-        "name": "viewport",
-        "content": "width=device-width, initial-scale=1"
-      }],
-      "link": [{
-        "rel": "icon",
-        "type": "image\u002Fx-icon",
-        "href": "\u002Ffavicon.ico"
-      }],
-      "style": [],
-      "script": []
+    head: function () {
+      if (this.$nuxtI18nHead === null) {
+        return this.$nuxtI18nHead({
+          addSeoAttributes: true
+        });
+      }
     },
     store,
     router,
@@ -6200,14 +5172,6 @@ async function createApp(ssrContext, config = {}) {
     await /* Cannot get final name for export "default" in "./.nuxt/components/plugin.js" (known exports: , known reexports: ) */ undefined(app.context, inject);
   }
 
-  if ( true && typeof /* Cannot get final name for export "default" in "./.nuxt/http.server.js" (known exports: , known reexports: ) */ undefined === 'function') {
-    await /* Cannot get final name for export "default" in "./.nuxt/http.server.js" (known exports: , known reexports: ) */ undefined(app.context, inject);
-  }
-
-  if (typeof http === 'function') {
-    await http(app.context, inject);
-  }
-
   if (typeof /* Cannot get final name for export "default" in "./.nuxt/nuxt-i18n/plugin.utils.js" (known exports: loadLanguageAsync resolveBaseUrl getDomainFromLocale registerStore validateRouteParams mergeAdditionalMessages, known reexports: ) */ undefined === 'function') {
     await /* Cannot get final name for export "default" in "./.nuxt/nuxt-i18n/plugin.utils.js" (known exports: loadLanguageAsync resolveBaseUrl getDomainFromLocale registerStore validateRouteParams mergeAdditionalMessages, known reexports: ) */ undefined(app.context, inject);
   }
@@ -6220,23 +5184,13 @@ async function createApp(ssrContext, config = {}) {
     await plugin_main(app.context, inject);
   }
 
-  if (false) {}
-
-  if (typeof meta_plugin === 'function') {
-    await meta_plugin(app.context, inject);
-  }
-
-  if (typeof icon_plugin === 'function') {
-    await icon_plugin(app.context, inject);
-  }
-
   if (typeof _nuxt_axios === 'function') {
     await _nuxt_axios(app.context, inject);
   }
 
-  if (false) {}
-
-  if (false) {} // Lock enablePreview in context
+  if (typeof /* Cannot get final name for export "default" in "./plugins/clickaway.js" (known exports: , known reexports: ) */ undefined === 'function') {
+    await /* Cannot get final name for export "default" in "./plugins/clickaway.js" (known exports: , known reexports: ) */ undefined(app.context, inject);
+  } // Lock enablePreview in context
 
 
   if (false) {} // Wait for async component to be resolved first
@@ -6641,7 +5595,187 @@ const createNext = ssrContext => opts => {
 });
 
 /***/ }),
-/* 58 */
+/* 51 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Menu.vue?vue&type=template&id=547f156c&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('nav',{staticClass:"w-full bg-slate-200"},[_vm._ssrNode("<div class=\"px-4 mx-auto sm:px-6 lg:px-8\">","</div>",[_vm._ssrNode("<div class=\"flex items-center justify-between h-16\">","</div>",[_vm._ssrNode("<div class=\"flex items-center\">","</div>",[_vm._ssrNode("<div class=\"flex-shrink-0\"><img src=\"https://tailwindui.com/img/logos/workflow-mark-indigo-400.svg\" alt=\"Workflow logo\" class=\"w-8 h-8\"></div> "),_vm._ssrNode("<div class=\"hidden md:block\">","</div>",[_vm._ssrNode("<div class=\"flex items-baseline ml-10\">","</div>",[_c('nuxt-link',{staticClass:"menu-item",attrs:{"to":_vm.localePath('index')}},[_vm._v(_vm._s(_vm.$t('home.title')))]),_vm._ssrNode(" "),_c('nuxt-link',{staticClass:"menu-item",attrs:{"to":_vm.localePath('about')}},[_vm._v(_vm._s(_vm.$t('about.title')))])],2)])],2),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"hidden md:block\">","</div>",[_vm._ssrNode("<div class=\"flex items-center ml-4 md:ml-6\">","</div>",[_vm._ssrNode("<div class=\"relative ml-3\">","</div>",_vm._l((_vm.availableLocales),function(locale){return _c('nuxt-link',{key:locale.code,staticClass:"menu-item",attrs:{"to":_vm.switchLocalePath(locale.code)}},[_vm._v(_vm._s(locale.name)+"\n            ")])}),1)])]),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"flex -mr-2 md:hidden\">","</div>",[_c('button',{directives:[{name:"on-clickaway",rawName:"v-on-clickaway",value:(_vm.closeMenu),expression:"closeMenu"}],staticClass:"inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white",on:{"click":_vm.toggle}},[_vm._ssrNode("<svg stroke=\"currentColor\" fill=\"none\" viewBox=\"0 0 24 24\""+(_vm._ssrClass(null,[_vm.isOpen ? 'hidden' : 'block', 'h-6 w-6']))+"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M4 6h16M4 12h16M4 18h16\"></path></svg> <svg stroke=\"currentColor\" fill=\"none\" viewBox=\"0 0 24 24\""+(_vm._ssrClass(null,[_vm.isOpen ? 'block' : 'hidden', 'h-6 w-6']))+"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M6 18L18 6M6 6l12 12\"></path></svg>")])])],2)]),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"bg-slate-300\""+(_vm._ssrStyle(null,null, { display: (_vm.isOpen) ? '' : 'none' }))+">","</div>",[_vm._ssrNode("<div class=\"px-2 pt-2 pb-3 sm:px-3\">","</div>",[_c('nuxt-link',{staticClass:"menu-item",attrs:{"to":_vm.localePath('index')}},[_vm._v(_vm._s(_vm.$t('home.title')))]),_vm._ssrNode(" "),_c('nuxt-link',{staticClass:"menu-item",attrs:{"to":_vm.localePath('about')}},[_vm._v(_vm._s(_vm.$t('about.title')))])],2),_vm._ssrNode(" "),_vm._ssrNode("<div class=\"px-2 pt-2 pb-3 border-t border-gray-700 sm:px-3\">","</div>",_vm._l((_vm.availableLocales),function(locale){return _c('nuxt-link',{key:locale.code,staticClass:"menu-item",attrs:{"to":_vm.switchLocalePath(locale.code)}},[_vm._v(_vm._s(locale.name)+"\n      ")])}),1)],2)],2)}
+var staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./components/Menu.vue?vue&type=template&id=547f156c&
+
+// CONCATENATED MODULE: ./node_modules/babel-loader/lib??ref--2-0!./node_modules/@nuxt/components/dist/loader.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./components/Menu.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ var Menuvue_type_script_lang_js_ = ({
+  data() {
+    return {
+      isOpen: false
+    };
+  },
+
+  methods: {
+    toggle() {
+      this.isOpen = !this.isOpen;
+    },
+
+    closeMenu() {
+      this.isOpen = false;
+    }
+
+  },
+  computed: {
+    availableLocales() {
+      return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale);
+    }
+
+  }
+});
+// CONCATENATED MODULE: ./components/Menu.vue?vue&type=script&lang=js&
+ /* harmony default export */ var components_Menuvue_type_script_lang_js_ = (Menuvue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__(4);
+
+// CONCATENATED MODULE: ./components/Menu.vue
+
+
+
+function injectStyles (context) {
+  
+  var style0 = __webpack_require__(33)
+if (style0.__inject__) style0.__inject__(context)
+
+}
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  components_Menuvue_type_script_lang_js_,
+  render,
+  staticRenderFns,
+  false,
+  injectStyles,
+  null,
+  "7b61e3fc"
+  
+)
+
+/* harmony default export */ var Menu = __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports) {
+
+module.exports = require("aos");
+
+/***/ }),
+/* 53 */,
+/* 54 */,
+/* 55 */
 /***/ (function(module, exports) {
 
 module.exports = require("devalue");

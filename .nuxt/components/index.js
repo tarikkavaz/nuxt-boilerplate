@@ -1,4 +1,4 @@
-export const Mountains = () => import('../../components/Mountains.vue' /* webpackChunkName: "components/mountains" */).then(c => wrapFunctional(c.default || c))
+export const Menu = () => import('../../components/Menu.vue' /* webpackChunkName: "components/menu" */).then(c => wrapFunctional(c.default || c))
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

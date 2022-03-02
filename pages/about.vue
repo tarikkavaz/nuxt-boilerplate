@@ -1,68 +1,68 @@
 <template>
   <div>
-    <h1 class="text-2xl font-bold">{{ $t("about.aboutus") }}</h1>
-    <p class="mt-6 text-lg text-slate-700">
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure nemo fugit
-      corrupti reiciendis maiores neque quia, hic dolore temporibus nisi.
-    </p>
-
-    <button @click="$modal.show('my-modal')" class="px-4 py-2 mt-4 text-black rounded-md bg-lime-400">Show modal</button>
-
-    <modal name="my-modal">
-      <div class="modal-content">
-        <h2>It work's!</h2>
-
-        <button @click="$modal.hide('my-modal')">Close it</button>
+    <h1>{{ $t('about.title') }}</h1>
+    <h2>{{ this.$i18n.locale }}</h2>
+    <div>
+      <div
+        data-aos="fade-up"
+        data-aos-offset="200"
+        data-aos-delay="50"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+        data-aos-mirror="true"
+        data-aos-once="false"
+        data-aos-anchor-placement="top-center"
+      >
+        This element should be animated on scroll
       </div>
-    </modal>
+      <div data-aos="fade-left">This element should be animated on scroll</div>
+      <div data-aos="fade-right">This element should be animated on scroll</div>
+      <div data-aos="fade-down">This element should be animated on scroll</div>
+      <div data-aos="slide-up">This element should be animated on scroll</div>
+      <div data-aos="slide-left">This element should be animated on scroll</div>
+      <div data-aos="slide-right">
+        This element should be animated on scroll
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import aosMixin from '../mixins/aos'
 export default {
-  name: "About",
-  head() {
-    return {
-      title: this.$t("about.metatilte"),
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: this.$t("about.metatilte"),
-        },
-        {
-          hid: "og:title",
-          name: "og:title",
-          content: this.$t("about.metatilte"),
-        },
-        {
-          hid: "og:site_name",
-          name: "og:site_name",
-          content: this.$t("about.metatilte"),
-        },
-        {
-          hid: "og:description",
-          name: "og:description",
-          content: this.$t("about.metatilte"),
-        },
-        {
-          hid: "apple-mobile-web-app-title",
-          name: "apple-mobile-web-app-title",
-          content: this.$t("about.metatilte"),
-        },
-      ],
-    };
-  },
+  name: 'AboutPage',
+  transition: 'fade',
+  mixins: [aosMixin],
   nuxtI18n: {
     paths: {
-      en: "/about",
-      tr: "/hakkinda",
+      en: '/about-us', // -> accessible at /about-us
+      tr: '/hakkimizda', // -> accessible at /fr/a-propos
     },
   },
-};
+  head() {
+    return {
+      title: this.$store.state.sitename + this.$t('about.title'),
+      htmlAttrs: {
+        lang: this.$i18n.locale,
+      },
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.$t('about.description'),
+        },
+      ],
+    }
+  },
+}
 </script>
 <style>
-.vm--modal {
-  @apply rounded-lg p-5;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-active {
+  opacity: 0;
 }
 </style>

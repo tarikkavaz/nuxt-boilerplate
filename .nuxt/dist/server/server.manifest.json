@@ -1,17 +1,17 @@
 {
   "entry": "server.js",
   "files": {
-    "components/mountains.js": "components/mountains.js",
+    "lang-en-US.js.js": "lang-en-US.js.js",
+    "lang-tr-TR.js.js": "lang-tr-TR.js.js",
     "pages/about.js": "pages/about.js",
     "pages/index.js": "pages/index.js",
-    "pages/mountains/_slug.js": "pages/mountains/_slug.js",
     "server.js": "server.js"
   },
   "maps": {
-    "components/mountains.js": "components/mountains.js.map",
+    "lang-en-US.js.js": "lang-en-US.js.js.map",
+    "lang-tr-TR.js.js": "lang-tr-TR.js.js.map",
     "pages/about.js": "pages/about.js.map",
     "pages/index.js": "pages/index.js.map",
-    "pages/mountains/_slug.js": "pages/mountains/_slug.js.map",
     "server.js": "server.js.map"
   }
 }

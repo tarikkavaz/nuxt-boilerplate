@@ -4,40 +4,32 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Nuxt Boilerpate',
-    titleTemplate: 'Nuxt Boilerpate | %s',
-    meta: [{
-        charset: 'utf-8'
-      },
-      {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1'
-      },
+    meta: [
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { hid: 'description', name: 'description', content: '' },
     ],
-    link: [{
-      rel: 'icon',
-      type: 'image/x-icon',
-      href: '/favicon.ico'
-    }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+  },
+  head() {
+    if (this.$nuxtI18nHead === null) {
+      return this.$nuxtI18nHead({ addSeoAttributes: true })
+    }
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    '@/assets/css/main.css',
-  ],
+  css: ['@/assets/css/main.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    { src: "~/plugins/vue-js-modal", mode: "client" },
-    { src: "~/plugins/v-dropdown-menu", mode: "client" }
-  ],
-
+  plugins: ['~/plugins/clickaway'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    // https://go.nuxtjs.dev/tailwindcss
+    // '@nuxtjs/tailwindcss',
     '@nuxt/postcss8',
   ],
 
@@ -45,24 +37,39 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
     '@nuxtjs/i18n',
-    '@nuxt/http'
   ],
+  i18n: {
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-US',
+        file: 'en-US.js',
+        name: 'English',
+      },
+      {
+        code: 'tr',
+        iso: 'tr-TR',
+        file: 'tr-TR.js',
+        name: 'Türkçe',
+      },
+    ],
+    lazy: true,
+    langDir: 'lang/',
+    strategy: 'prefix',
+    defaultLocale: 'tr',
+    vueI18nLoader: true,
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root', // recommended
+    },
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: '/',
-    // proxyHeaders: false
-  },
-
-  // PWA module configuration: https://go.nuxtjs.dev/pwa
-  pwa: {
-    manifest: {
-      lang: 'en'
-    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
@@ -73,44 +80,5 @@ export default {
         autoprefixer: {},
       },
     },
-  },
-
-  i18n: {
-    locales: ['en', 'tr'], // list of langs
-    defaultLocale: process.env.VUE_APP_I18N_LOCALE || 'en', // just for better experience
-    differentDomains: false,
-    langDir: './locales/', // here is languages directory
-    locales: [
-      // here is files information ( if you have .json format, replace .js with .json
-      {
-        code: 'tr',
-        iso: 'tr-TR',
-        name: 'Türkçe',
-        file: 'tr.json',
-      },
-      {
-        code: 'en',
-        iso: 'en-EN',
-        name: 'English',
-        file: 'en.json',
-      },
-    ],
-    vueI18n: {
-      fallbackLocale: process.env.VUE_APP_I18N_LOCALE || 'en',
-    },
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root',
-    },
-
-
-    parsePages: false,
-    pages: {
-      about: {
-        en: '/about',
-        tr: '/hakkinda'
-      }
-    }
   },
 }
