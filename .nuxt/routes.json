@@ -2,43 +2,43 @@
   {
     "name": "about",
     "path": "/about",
-    "component": "/Users/tarik/Work/NewTabLab/flammbodrum.nuxt/pages/about.vue",
+    "component": "/Users/tarik/Work/NewTabLab/Boilerplates/nuxt-boilerplate/pages/about.vue",
     "chunkName": "pages/about",
-    "_name": "_62e89e0a"
+    "_name": "_712a6362"
   },
   {
     "name": "index___en",
     "path": "/en",
-    "component": "/Users/tarik/Work/NewTabLab/flammbodrum.nuxt/pages/index.vue",
+    "component": "/Users/tarik/Work/NewTabLab/Boilerplates/nuxt-boilerplate/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_2378e880"
+    "_name": "_de3b83b2"
   },
   {
     "name": "index___tr",
     "path": "/tr",
-    "component": "/Users/tarik/Work/NewTabLab/flammbodrum.nuxt/pages/index.vue",
+    "component": "/Users/tarik/Work/NewTabLab/Boilerplates/nuxt-boilerplate/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_2378e880"
+    "_name": "_de3b83b2"
   },
   {
     "name": "about___en",
     "path": "/en/about-us",
-    "component": "/Users/tarik/Work/NewTabLab/flammbodrum.nuxt/pages/about.vue",
+    "component": "/Users/tarik/Work/NewTabLab/Boilerplates/nuxt-boilerplate/pages/about.vue",
     "chunkName": "pages/about",
-    "_name": "_62e89e0a"
+    "_name": "_712a6362"
   },
   {
     "name": "about___tr",
     "path": "/tr/hakkimizda",
-    "component": "/Users/tarik/Work/NewTabLab/flammbodrum.nuxt/pages/about.vue",
+    "component": "/Users/tarik/Work/NewTabLab/Boilerplates/nuxt-boilerplate/pages/about.vue",
     "chunkName": "pages/about",
-    "_name": "_62e89e0a"
+    "_name": "_712a6362"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "/Users/tarik/Work/NewTabLab/flammbodrum.nuxt/pages/index.vue",
+    "component": "/Users/tarik/Work/NewTabLab/Boilerplates/nuxt-boilerplate/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_2378e880"
+    "_name": "_de3b83b2"
   }
 ]

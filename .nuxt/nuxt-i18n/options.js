@@ -20,7 +20,7 @@ export const options = {
   sortRoutes: true,
   strategy: "prefix",
   lazy: true,
-  langDir: "/Users/tarik/Work/NewTabLab/flammbodrum.nuxt/lang",
+  langDir: "/Users/tarik/Work/NewTabLab/Boilerplates/nuxt-boilerplate/lang",
   rootRedirect: null,
   detectBrowserLanguage: {"alwaysRedirect":false,"cookieCrossOrigin":false,"cookieDomain":null,"cookieKey":"i18n_redirected","cookieSecure":false,"fallbackLocale":"","redirectOn":"root","useCookie":true},
   differentDomains: false,
