@@ -16,6 +16,11 @@ export default {
       return this.$nuxtI18nHead({ addSeoAttributes: true })
     }
   },
+  seoMeta: {
+    title: 'My site title',
+    keywords: 'keyword1, keyword2, keyword3',
+    description: 'My site description',
+  },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['@/assets/css/main.css'],
@@ -38,7 +43,43 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/i18n',
+    'nuxt-seo-meta',
+    [
+      'nuxt-social-meta',
+      {
+        url: 'Site url',
+        title: 'Title',
+        site_name: 'Site name',
+        description: 'Site description',
+        img: 'Link to image in static folder',
+        img_size: { width: 'Image width in px', height: 'Image height in px' },
+        locale: 'en_US',
+        twitter: '@user',
+        twitter_card: 'summary_large_image',
+        theme_color: '#theme-color',
+      },
+    ],
+    '@nuxtjs/google-analytics',
+    '@nuxtjs/sitemap',
   ],
+  googleAnalytics: {
+    id: 'UA-XXX-X',
+  },
+  sitemap: {
+    hostname: 'https://example.com',
+    gzip: true,
+    exclude: ['/secret', '/admin/**'],
+    routes: [
+      '/page/1',
+      '/page/2',
+      {
+        url: '/page/3',
+        changefreq: 'daily',
+        priority: 1,
+        lastmod: '2017-06-30T13:30:00.000Z',
+      },
+    ],
+  },
   i18n: {
     locales: [
       {

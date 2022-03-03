@@ -4,6 +4,7 @@
     "path": "/about",
     "component": "/Users/tarik/Work/NewTabLab/Boilerplates/nuxt-boilerplate/pages/about.vue",
     "chunkName": "pages/about",
+    "url": "/about",
     "_name": "_712a6362"
   },
   {
@@ -11,6 +12,7 @@
     "path": "/en",
     "component": "/Users/tarik/Work/NewTabLab/Boilerplates/nuxt-boilerplate/pages/index.vue",
     "chunkName": "pages/index",
+    "url": "/en",
     "_name": "_de3b83b2"
   },
   {
@@ -18,6 +20,7 @@
     "path": "/tr",
     "component": "/Users/tarik/Work/NewTabLab/Boilerplates/nuxt-boilerplate/pages/index.vue",
     "chunkName": "pages/index",
+    "url": "/tr",
     "_name": "_de3b83b2"
   },
   {
@@ -25,6 +28,7 @@
     "path": "/en/about-us",
     "component": "/Users/tarik/Work/NewTabLab/Boilerplates/nuxt-boilerplate/pages/about.vue",
     "chunkName": "pages/about",
+    "url": "/en/about-us",
     "_name": "_712a6362"
   },
   {
@@ -32,6 +36,7 @@
     "path": "/tr/hakkimizda",
     "component": "/Users/tarik/Work/NewTabLab/Boilerplates/nuxt-boilerplate/pages/about.vue",
     "chunkName": "pages/about",
+    "url": "/tr/hakkimizda",
     "_name": "_712a6362"
   },
   {
@@ -39,6 +44,7 @@
     "path": "/",
     "component": "/Users/tarik/Work/NewTabLab/Boilerplates/nuxt-boilerplate/pages/index.vue",
     "chunkName": "pages/index",
+    "url": "/",
     "_name": "_de3b83b2"
   }
 ]
