@@ -1,4 +1,5 @@
-export const Menu = () => import('../../components/Menu.vue' /* webpackChunkName: "components/menu" */).then(c => wrapFunctional(c.default || c))
+export { default as Menu } from '../../components/Menu.vue'
+export { default as Modal } from '../../components/Modal.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {
