@@ -128,7 +128,8 @@
         </div>
       </div>
     </div>
-    <div :class="[isMenuOpen ? '' : 'hidden', 'md:hidden']">
+
+    <div class="bg-slate-300" v-show="isMenuOpen">
       <div class="px-2 pt-2 pb-3 sm:px-3">
         <nuxt-link :to="localePath('index')" class="menu-item">{{
           $t('home.title')
@@ -137,32 +138,14 @@
           $t('about.title')
         }}</nuxt-link>
       </div>
-      <div class="pt-4 pb-3 border-t border-gray-700">
-        <div class="flex items-center px-5">
-          <div class="flex-shrink-0">
-            <img
-              class="w-10 h-10 rounded-full"
-              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-              alt
-            />
-          </div>
-          <div class="ml-3">
-            <div class="text-base font-medium leading-none text-white">
-              Tom Cook
-            </div>
-            <div class="mt-1 text-sm font-medium leading-none text-gray-400">
-              tom@example.com
-            </div>
-          </div>
-        </div>
-        <div class="px-2 mt-3">
-          <nuxt-link :to="localePath('index')" class="menu-item">{{
-            $t('home.title')
-          }}</nuxt-link>
-          <nuxt-link :to="localePath('about')" class="menu-item">{{
-            $t('about.title')
-          }}</nuxt-link>
-        </div>
+      <div class="px-2 pt-2 pb-3 border-t border-gray-700 sm:px-3">
+        <nuxt-link
+          v-for="locale in availableLocales"
+          :key="locale.code"
+          :to="switchLocalePath(locale.code)"
+          class="menu-item"
+          >{{ locale.name }}
+        </nuxt-link>
       </div>
     </div>
   </nav>
