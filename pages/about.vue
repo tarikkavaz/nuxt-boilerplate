@@ -69,7 +69,7 @@ export default {
         {
           hid: 'og:image',
           name: 'og:image',
-          content: this.$t('about.image'),
+          content: this.$store.state.siteurl + this.$t('about.image'),
         },
         {
           hid: 'twitter:title',
@@ -84,7 +84,7 @@ export default {
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: this.$t('about.image'),
+          content: this.$store.state.siteurl + this.$t('about.image'),
         },
         {
           hid: 'twitter:url',
