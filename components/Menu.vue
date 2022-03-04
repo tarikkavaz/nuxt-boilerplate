@@ -68,22 +68,16 @@
                     aria-labelledby="user-menu"
                   >
                     <nuxt-link
-                      :to="localePath('index1')"
+                      :to="localePath('index')"
                       class="dropdown-item"
                       role="menuitem"
                       >Your Profile</nuxt-link
                     >
                     <nuxt-link
-                      :to="localePath('index2')"
+                      :to="localePath('about')"
                       class="dropdown-item"
                       role="menuitem"
                       >Settings</nuxt-link
-                    >
-                    <nuxt-link
-                      :to="localePath('index3')"
-                      class="dropdown-item"
-                      role="menuitem"
-                      >Sign out</nuxt-link
                     >
                   </div>
                 </div>

@@ -1,3 +1,5 @@
 export const state = () => ({
-  sitename: 'Boilerplate - ',
+  sitename: 'Boilerplate',
+  siteurl: 'https://www.google.com',
+  twitteruser: '@username',
 })

@@ -41,7 +41,7 @@ export default {
   },
   head() {
     return {
-      title: this.$store.state.sitename + this.$t('about.title'),
+      title: this.$store.state.sitename + ' - ' + this.$t('about.title'),
       htmlAttrs: {
         lang: this.$i18n.locale,
       },
@@ -50,6 +50,46 @@ export default {
           hid: 'description',
           name: 'description',
           content: this.$t('about.description'),
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: this.$store.state.sitename + ' - ' + this.$t('about.title'),
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: this.$t('about.description'),
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          content: this.$store.state.siteurl + this.$nuxt.$route.path,
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: this.$t('about.image'),
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: this.$store.state.sitename + ' - ' + this.$t('about.title'),
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: this.$t('about.description'),
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.$t('about.image'),
+        },
+        {
+          hid: 'twitter:url',
+          name: 'twitter:url',
+          content: this.$store.state.siteurl + this.$nuxt.$route.path,
         },
       ],
     }
