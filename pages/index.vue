@@ -42,7 +42,7 @@ export default {
       },
       homecontent: [
         {
-          text: 'Lorem ipsum dolor sit amet consectetur.',
+          text: 'Lorem ipsum dolor sit amet consectetur!',
           image: 'https://picsum.photos/id/1/1900/1200',
         },
         {

@@ -13,7 +13,7 @@
           <p class="mb-8 text-sm text-gray-500">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum
             nesciunt magni, voluptates aliquam, doloremque repudiandae tempora
-            assumenda dicta, sequi ab maiores odit!
+            assumenda dicta, sequi ab maiores odit.
           </p>
         </template>
         <template v-slot:close>
