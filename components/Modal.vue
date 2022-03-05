@@ -1,10 +1,13 @@
 <template>
   <transition name="modal-fade">
     <div
-      class="fixed inset-0 flex justify-center bg-black/50"
+      class="fixed inset-0 z-50 flex justify-center bg-black/50"
       @click="$emit('close-modal')"
     >
-      <div class="w-2/4 p-8 mt-auto mb-auto bg-white rounded-md" @click.stop>
+      <div
+        class="z-50 w-2/4 p-8 mt-auto mb-auto bg-white rounded-md"
+        @click.stop
+      >
         <slot name="content">Hello</slot>
         <div @click="$emit('close-modal')">
           <slot name="close">Close</slot>

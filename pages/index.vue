@@ -1,43 +1,67 @@
 <template>
-  <div>
-    <h1>{{ $t('home.title') }}</h1>
-    <h2>{{ $t('welcome') }}</h2>
-    <p>{{ $t('test.one') }} {{ $t('test.two') }}</p>
-    <h2>{{ this.$i18n.locale }}</h2>
-    <button @click="showModal = true">Modal</button>
-    <Modal v-show="showModal" @close-modal="showModal = false">
-      <template v-slot:content>
-        <p class="mb-8 text-sm text-gray-500">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum
-          nesciunt magni, voluptates aliquam, doloremque repudiandae tempora
-          assumenda dicta, sequi ab maiores odit! Itaque voluptates nemo ipsam
-          eius. Et, beatae voluptas.
-        </p>
-      </template>
-      <template v-slot:close>
+  <div class="h-full">
+    <div class="h-full carousel-wrapper">
+      <VueSlickCarousel v-bind="slickOptions" class="">
         <div
-          class="inline-block px-6 py-3 text-black rounded-md cursor-pointer bg-slate-200"
+          class="relative max-h-screen img-wrapper"
+          v-for="(slogan, i) in homecontent"
+          :key="i"
         >
-          OK
+          <img :src="slogan.image" class="object-cover w-full h-full" alt="" />
+          <div class="absolute inset-0 flex items-center justify-center">
+            <h2 class="px-10 py-5 rounded-sm bg-slate-100/80">
+              <span
+                class="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-custom-blue to-custom-orange slogan"
+                >{{ slogan.text }}</span
+              >
+            </h2>
+          </div>
         </div>
-      </template>
-    </Modal>
+      </VueSlickCarousel>
+    </div>
   </div>
 </template>
 
 <script>
-import Modal from '~/components/Modal.vue'
 export default {
-  name: 'IndexPage',
+  name: 'home',
   transition: 'fade',
   data() {
     return {
-      showModal: false,
+      isMilky: true,
+      slickOptions: {
+        pauseOnHover: false,
+        arrows: false,
+        fade: true,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        speed: 2000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+      homecontent: [
+        {
+          text: 'Lorem ipsum dolor sit amet consectetur.',
+          image: 'https://picsum.photos/id/1/1900/1200',
+        },
+        {
+          text: 'Quisquam quo ea fugit odio deleniti.',
+          image: 'https://picsum.photos/id/1/1900/1200',
+        },
+        {
+          text: 'Maiores consequuntur fugit explicabo',
+          image: 'https://picsum.photos/id/1/1900/1200',
+        },
+      ],
     }
   },
   head() {
     return {
-      title: this.$store.state.sitename + ' - ' + this.$t('home.title'),
+      title:
+        this.$store.state.sitename +
+        ' - ' +
+        this.$t(`${this.$options.name}.title`),
       htmlAttrs: {
         lang: this.$i18n.locale,
       },
@@ -45,17 +69,20 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: this.$t('home.description'),
+          content: this.$t(`${this.$options.name}.description`),
         },
         {
           hid: 'og:title',
           name: 'og:title',
-          content: this.$store.state.sitename + ' - ' + this.$t('home.title'),
+          content:
+            this.$store.state.sitename +
+            ' - ' +
+            this.$t(`${this.$options.name}.title`),
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: this.$t('home.description'),
+          content: this.$t(`${this.$options.name}.description`),
         },
         {
           hid: 'og:url',
@@ -65,22 +92,27 @@ export default {
         {
           hid: 'og:image',
           name: 'og:image',
-          content: this.$store.state.siteurl + this.$t('home.image'),
+          content:
+            this.$store.state.siteurl + this.$t(`${this.$options.name}.image`),
         },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: this.$store.state.sitename + ' - ' + this.$t('home.title'),
+          content:
+            this.$store.state.sitename +
+            ' - ' +
+            this.$t(`${this.$options.name}.title`),
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: this.$t('home.description'),
+          content: this.$t(`${this.$options.name}.description`),
         },
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: this.$store.state.siteurl + this.$t('home.image'),
+          content:
+            this.$store.state.siteurl + this.$t(`${this.$options.name}.image`),
         },
         {
           hid: 'twitter:url',
@@ -92,7 +124,17 @@ export default {
   },
 }
 </script>
-<style>
+
+<style lang="scss">
+.slick-slider,
+.slick-list,
+.slick-track,
+.slick-slide {
+  @apply min-h-full h-full;
+  div {
+    @apply min-h-full h-full;
+  }
+}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
@@ -100,5 +142,10 @@ export default {
 .fade-enter,
 .fade-leave-active {
   opacity: 0;
+}
+</style>
+<style scoped>
+nav {
+  @apply bg-slate-100;
 }
 </style>

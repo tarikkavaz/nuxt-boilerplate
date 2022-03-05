@@ -1,4 +1,4 @@
-# flammbodrum.com
+# Nuxt Boilerplate
 
 ## Build Setup
 

@@ -5,7 +5,7 @@ import ClientOnly from 'vue-client-only'
 import NoSsr from 'vue-no-ssr'
 import { createRouter } from './router.js'
 import NuxtChild from './components/nuxt-child.js'
-import NuxtError from './components/nuxt-error.vue'
+import NuxtError from '../layouts/error.vue'
 import Nuxt from './components/nuxt.js'
 import App from './App.js'
 import { setContext, getLocation, getRouteData, normalizeError } from './utils'
@@ -19,6 +19,8 @@ import nuxt_plugin_pluginutils_59de6a84 from 'nuxt_plugin_pluginutils_59de6a84' 
 import nuxt_plugin_pluginrouting_11ee66cf from 'nuxt_plugin_pluginrouting_11ee66cf' // Source: ./nuxt-i18n/plugin.routing.js (mode: 'all')
 import nuxt_plugin_pluginmain_1e14e200 from 'nuxt_plugin_pluginmain_1e14e200' // Source: ./nuxt-i18n/plugin.main.js (mode: 'all')
 import nuxt_plugin_axios_174e36d2 from 'nuxt_plugin_axios_174e36d2' // Source: ./axios.js (mode: 'all')
+import nuxt_plugin_image_41403cdc from 'nuxt_plugin_image_41403cdc' // Source: ./image.js (mode: 'all')
+import nuxt_plugin_vueslickcarousel_d8b69d56 from 'nuxt_plugin_vueslickcarousel_d8b69d56' // Source: ../plugins/vue-slick-carousel.js (mode: 'all')
 import nuxt_plugin_clickaway_0a91e480 from 'nuxt_plugin_clickaway_0a91e480' // Source: ../plugins/clickaway (mode: 'all')
 
 // Component: <ClientOnly>
@@ -242,6 +244,14 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_axios_174e36d2 === 'function') {
     await nuxt_plugin_axios_174e36d2(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_image_41403cdc === 'function') {
+    await nuxt_plugin_image_41403cdc(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_vueslickcarousel_d8b69d56 === 'function') {
+    await nuxt_plugin_vueslickcarousel_d8b69d56(app.context, inject)
   }
 
   if (typeof nuxt_plugin_clickaway_0a91e480 === 'function') {

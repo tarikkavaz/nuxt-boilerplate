@@ -3,14 +3,6 @@ export default {
   target: 'static',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
-  head: {
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-    ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-  },
   head() {
     if (this.$nuxtI18nHead === null) {
       return this.$nuxtI18nHead({ addSeoAttributes: true })
@@ -18,10 +10,13 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/assets/css/main.css'],
+  css: [
+    'vue-slick-carousel/dist/vue-slick-carousel.css',
+    '@/assets/css/main.css',
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/clickaway'],
+  plugins: [{ src: './plugins/vue-slick-carousel.js' }, '~/plugins/clickaway'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -31,6 +26,7 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     // '@nuxtjs/tailwindcss',
     '@nuxt/postcss8',
+    '@nuxt/image',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -41,22 +37,7 @@ export default {
     '@nuxtjs/google-analytics',
   ],
   googleAnalytics: {
-    id: 'UA-XXX-X',
-  },
-  sitemap: {
-    hostname: 'https://example.com',
-    gzip: true,
-    exclude: ['/secret', '/admin/**'],
-    routes: [
-      '/page/1',
-      '/page/2',
-      {
-        url: '/page/3',
-        changefreq: 'daily',
-        priority: 1,
-        lastmod: '2017-06-30T13:30:00.000Z',
-      },
-    ],
+    id: 'UA-22099158-7',
   },
   i18n: {
     locales: [
@@ -76,13 +57,13 @@ export default {
     lazy: true,
     langDir: 'lang/',
     strategy: 'prefix',
-    defaultLocale: 'tr',
+    defaultLocale: 'en',
     vueI18nLoader: true,
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root', // recommended
-    },
+    // detectBrowserLanguage: {
+    //   useCookie: true,
+    //   cookieKey: 'i18n_redirected',
+    //   redirectOn: 'root', // recommended
+    // },
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

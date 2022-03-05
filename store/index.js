@@ -1,5 +1,5 @@
 export const state = () => ({
-  sitename: 'Boilerplate',
-  siteurl: 'https://www.google.com',
-  twitteruser: '@username',
+  sitename: 'Nuxt Boilerplate',
+  siteurl: 'https://tariks-nuxt.herokuapp.com',
+  twitteruser: '@tarikkavaz',
 })

@@ -1,10 +1,9 @@
 <template>
-  <div class="flex flex-col h-screen bg-slate-100">
-    <div class=""><Menu /></div>
-    <div class="p-4 bg-slate-200 grow"><Nuxt /></div>
+  <div class="flex flex-col h-screen">
+    <div class="absolute inset-0 z-40 max-h-20"><Menu /></div>
+    <div class="z-10 grow"><Nuxt /></div>
   </div>
 </template>
-
 <script>
 export default {
   head() {
@@ -14,6 +13,8 @@ export default {
         lang: this.$i18n.locale,
       },
       meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         {
           hid: 'author',
           name: 'author',
@@ -55,9 +56,8 @@ export default {
           content: this.$store.state.twitteruser,
         },
       ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     }
   },
 }
 </script>
-
-<style lang="scss" scoped></style>
