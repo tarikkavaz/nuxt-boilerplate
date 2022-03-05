@@ -14,7 +14,7 @@
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum
             nesciunt magni, voluptates aliquam, doloremque repudiandae tempora
             assumenda dicta, sequi ab maiores odit! Itaque voluptates nemo ipsam
-            eius. Et, beatae voluptas.
+            eius. Et, beatae voluptas!
           </p>
         </template>
         <template v-slot:close>
