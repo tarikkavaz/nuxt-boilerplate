@@ -3,42 +3,36 @@
     "name": "index___en",
     "path": "/en",
     "component": "/Users/tarik/Work/NewTabLab/Boilerplates/nuxt-boilerplate/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_de3b83b2"
+    "chunkName": "pages/index"
   },
   {
     "name": "sample",
     "path": "/sample",
     "component": "/Users/tarik/Work/NewTabLab/Boilerplates/nuxt-boilerplate/pages/sample.vue",
-    "chunkName": "pages/sample",
-    "_name": "_6a059f25"
+    "chunkName": "pages/sample"
   },
   {
     "name": "index___tr",
     "path": "/tr",
     "component": "/Users/tarik/Work/NewTabLab/Boilerplates/nuxt-boilerplate/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_de3b83b2"
+    "chunkName": "pages/index"
   },
   {
     "name": "sample___en",
     "path": "/en/sample",
     "component": "/Users/tarik/Work/NewTabLab/Boilerplates/nuxt-boilerplate/pages/sample.vue",
-    "chunkName": "pages/sample",
-    "_name": "_6a059f25"
+    "chunkName": "pages/sample"
   },
   {
     "name": "sample___tr",
     "path": "/tr/ornek",
     "component": "/Users/tarik/Work/NewTabLab/Boilerplates/nuxt-boilerplate/pages/sample.vue",
-    "chunkName": "pages/sample",
-    "_name": "_6a059f25"
+    "chunkName": "pages/sample"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/Users/tarik/Work/NewTabLab/Boilerplates/nuxt-boilerplate/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_de3b83b2"
+    "chunkName": "pages/index"
   }
 ]
