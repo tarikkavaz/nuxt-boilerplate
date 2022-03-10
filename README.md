@@ -17,6 +17,11 @@ $ yarn start
 $ yarn generate
 ```
 
+## Strapi
+
+clone, install and run:
+https://github.com/tarikkavaz/strapi-boilerplate
+
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
 
 ## Special Directories

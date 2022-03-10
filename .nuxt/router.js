@@ -6,6 +6,7 @@ import scrollBehavior from './router.scrollBehavior.js'
 
 const _de3b83b2 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 const _6a059f25 = () => interopDefault(import('../pages/sample.vue' /* webpackChunkName: "pages/sample" */))
+const _600e0444 = () => interopDefault(import('../pages/strapi.vue' /* webpackChunkName: "pages/strapi" */))
 
 const emptyFn = () => {}
 
@@ -27,6 +28,10 @@ export const routerOptions = {
     component: _6a059f25,
     name: "sample"
   }, {
+    path: "/strapi",
+    component: _600e0444,
+    name: "strapi"
+  }, {
     path: "/tr",
     component: _de3b83b2,
     name: "index___tr"
@@ -35,9 +40,17 @@ export const routerOptions = {
     component: _6a059f25,
     name: "sample___en"
   }, {
+    path: "/en/strapi",
+    component: _600e0444,
+    name: "strapi___en"
+  }, {
     path: "/tr/ornek",
     component: _6a059f25,
     name: "sample___tr"
+  }, {
+    path: "/tr/strapi",
+    component: _600e0444,
+    name: "strapi___tr"
   }, {
     path: "/",
     component: _de3b83b2,

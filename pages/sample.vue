@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-xl pt-20 mx-auto h-hull">
+  <div class="max-w-xl pt-20 mx-auto f-hull">
     <h1>{{ $t(`${this.$options.name}.title`) }} - {{ this.$i18n.locale }}</h1>
     <div>
       <button

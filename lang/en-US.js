@@ -12,4 +12,10 @@ export default {
       'EN Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, ratione?',
     image: '/og-share.jpg',
   },
+  strapi: {
+    title: 'Strapi',
+    description:
+      'EN Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, ratione?',
+    image: '/og-share.jpg',
+  },
 }
