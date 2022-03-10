@@ -1,7 +1,9 @@
 <template>
-  <div class="pt-20 h-full mx-auto max-w-3xl">
+  <div class="pt-36 h-full mx-auto max-w-3xl">
     <div v-for="message in messages.data" :key="message.id">
-      <h1>{{ message.attributes.greetings }}</h1>
+      <h2>
+        {{ message.attributes.greetings }} - {{ message.attributes.locale }}
+      </h2>
     </div>
   </div>
 </template>

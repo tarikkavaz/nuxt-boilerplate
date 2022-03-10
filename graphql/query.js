@@ -6,6 +6,7 @@ export const messageQuery = gql`
       data {
         attributes {
           greetings
+          locale
         }
         id
       }
